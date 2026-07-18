@@ -52,7 +52,7 @@
       background: rgba(7, 24, 30, 0.48);
     }
     .hero > * { position: relative; }
-    .eyebrow { margin: 0 0 9px; font-size: 13px; font-weight: 700; }
+    .eyebrow { margin: 0 0 9px; font-size: 19px; line-height: 1.25; font-weight: 700; }
     h1 { margin: 0; font-size: 36px; line-height: 1.1; letter-spacing: 0; }
     .hero-copy { margin: 12px 0 0; max-width: 520px; font-size: 16px; }
     .photo-note { margin: 15px 0 0; font-size: 12px; color: rgba(255,255,255,.82); }
@@ -182,7 +182,21 @@
     .tip-panel { margin-top: 16px; padding: 15px; border-left: 4px solid var(--sun); background: #fff7ee; }
     .tip-panel strong { display: block; font-size: 15px; }
     .tip-panel p { margin: 5px 0 0; font-size: 14px; color: var(--muted); }
-    .bottom-nav { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 10px; background: var(--snow); border-bottom: 1px solid var(--line); }
+    .shop-list { display: grid; gap: 14px; margin-top: 16px; }
+    .shop-card { border: 1px solid var(--line); background: var(--surface); box-shadow: var(--shadow); }
+    .shop-card-body { padding: 15px; }
+    .shop-kicker { margin: 0 0 4px; color: var(--pine); font-size: 12px; font-weight: 750; }
+    .shop-card h3 { margin: 0; font-size: 18px; line-height: 1.25; }
+    .shop-card p { margin: 8px 0 0; color: var(--muted); font-size: 14px; }
+    .shop-facts { display: grid; gap: 8px; margin: 14px 0 0; padding: 12px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .shop-facts div { display: grid; grid-template-columns: 76px 1fr; gap: 8px; font-size: 13px; }
+    .shop-facts strong { color: var(--ink); }
+    .shop-link { display: inline-flex; min-height: 40px; align-items: center; margin-top: 12px; padding: 0 12px; border: 1px solid var(--pine); color: var(--pine); font-size: 14px; font-weight: 750; text-decoration: none; }
+    .shop-link::after { content: "↗"; margin-left: 7px; font-size: 16px; }
+    .shop-note { margin-top: 16px; padding: 15px; border-left: 4px solid var(--lake); background: #eef6f8; }
+    .shop-note strong { display: block; font-size: 15px; }
+    .shop-note p { margin: 5px 0 0; color: var(--muted); font-size: 14px; }
+    .bottom-nav { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; padding: 10px; background: var(--snow); border-bottom: 1px solid var(--line); }
     .nav-button { min-height: 58px; padding: 8px 6px; display: flex; align-items: center; justify-content: center; gap: 5px; border: 1px solid #bdc8c5; border-radius: 6px; background: #fff; color: var(--pine-dark); box-shadow: 0 2px 5px rgba(16,38,46,.10); font-size: 14px; font-weight: 750; }
     .nav-button::after { content: "›"; font-size: 20px; line-height: 1; color: var(--lake); }
     .nav-button:active { transform: translateY(1px); box-shadow: none; }
@@ -195,6 +209,7 @@
     @media (min-width: 620px) {
       .hero { min-height: 410px; padding: 36px; }
       .section { padding: 32px 36px; }
+      .bottom-nav { grid-template-columns: repeat(4, 1fr); }
       .day-strip { padding-left: 36px; padding-right: 36px; }
       .day-view { padding-left: 36px; padding-right: 36px; }
       .weather-band { padding-left: 36px; padding-right: 36px; }
@@ -220,6 +235,7 @@
       <button class="nav-button active" type="button" data-page="itinerary-page">每日行程</button>
       <button class="nav-button" type="button" data-page="stays-page">住宿</button>
       <button class="nav-button" type="button" data-page="checklist-page">出发前确认</button>
+      <button class="nav-button" type="button" data-page="shopping-page">购物药妆</button>
     </nav>
 
     <section class="page active" id="itinerary-page" aria-label="每日行程">
@@ -266,6 +282,77 @@
           <li><strong>1月23日，札幌</strong>保留为天气缓冲日，餐厅订位可以晚一点或选酒店附近。</li>
           <li><strong>1月27日，千岁</strong>简单用餐即可，以酒店、千岁市区或新千岁机场餐饮区为主。</li>
         </ul>
+      </section>
+    </section>
+
+    <section class="page" id="shopping-page" aria-label="札幌购物与药妆">
+      <section class="section">
+        <h2 class="section-title">札幌购物与药妆</h2>
+        <p class="section-copy">按区域安排，尽量利用车站直连、室内商场和狸小路有顶棚步道。时间为当前常规参考；2027年1月出发前请再看官网的节假日安排。</p>
+
+        <div class="shop-list">
+          <article class="shop-card">
+            <div class="shop-card-body">
+              <p class="shop-kicker">札幌站 · 雪天首选</p>
+              <h3>札幌 Stellar Place + 札幌站周边</h3>
+              <p>与 JR 札幌站和地铁直接相连，适合先买衣物、伴手礼和日常用品，再在同一区域吃饭。B1 的 Satsudora 很适合作为第一站药妆补给。</p>
+              <div class="shop-facts">
+                <div><strong>常规时间</strong><span>商场约 10:00 开门、20:00-21:00 闭店；餐饮约 11:00-23:00。</span></div>
+                <div><strong>药妆</strong><span>Satsudora 札幌 Stellar Place 店：平日 08:00-21:00；周末及节假日 10:00-21:00。</span></div>
+                <div><strong>优先买</strong><span>保暖用品、零食、轻便伴手礼、基础护肤和常用药妆。</span></div>
+              </div>
+              <a class="shop-link" href="https://www.stellarplace.net/" target="_blank" rel="noopener noreferrer">Stellar Place 官网</a>
+              <a class="shop-link" href="https://satudora.jp/shop/sapporosuterapureisu/" target="_blank" rel="noopener noreferrer">Satsudora 店铺信息</a>
+            </div>
+          </article>
+
+          <article class="shop-card">
+            <div class="shop-card-body">
+              <p class="shop-kicker">札幌站 · 食品与伴手礼</p>
+              <h3>大丸札幌店</h3>
+              <p>从札幌站内即可到达。地下食品层适合买北海道甜点、海产和送人的伴手礼；百货楼层适合买品质更高的服饰、化妆品和礼品。</p>
+              <div class="shop-facts">
+                <div><strong>常规时间</strong><span>B1F-7F：10:00-20:00；8F 餐厅：11:00-22:00。</span></div>
+                <div><strong>适合安排</strong><span>第 2 或第 4 天上午，下雪时可以减少户外行走。</span></div>
+                <div><strong>提醒</strong><span>伴手礼尽量在行程前段购买；冷藏或冷冻品留到最后一两天再选。</span></div>
+              </div>
+              <a class="shop-link" href="https://www.daimaru.co.jp/sapporo/c/" target="_blank" rel="noopener noreferrer">大丸札幌店官网</a>
+            </div>
+          </article>
+
+          <article class="shop-card">
+            <div class="shop-card-body">
+              <p class="shop-kicker">薄野 · 晚间最方便</p>
+              <h3>COCONO SUSUKINO</h3>
+              <p>就在薄野核心区，适合从 SAPPORO STREAM HOTEL 出发后顺路逛。可把购物、超市补给、晚餐和娱乐放在同一栋建筑内。</p>
+              <div class="shop-facts">
+                <div><strong>常规时间</strong><span>一般商店及美容楼层：10:00-21:00；3F 餐饮：11:00-23:00；4F 餐厅与酒吧：11:00-24:00。</span></div>
+                <div><strong>适合购买</strong><span>小件衣物、美妆、零食和晚餐前后的临时补给。</span></div>
+                <div><strong>冬季优势</strong><span>不用安排成整天行程，天气不好或晚餐前后顺路即可。</span></div>
+              </div>
+              <a class="shop-link" href="https://cocono-susukino.jp/facility/detail/2" target="_blank" rel="noopener noreferrer">COCONO 营业时间</a>
+            </div>
+          </article>
+
+          <article class="shop-card">
+            <div class="shop-card-body">
+              <p class="shop-kicker">狸小路 · 药妆选择最多</p>
+              <h3>狸小路商店街 + Satsudora</h3>
+              <p>狸小路有顶棚，适合下雪时慢慢逛，但长度较长，建议只挑一两个街区、随时进店取暖。可把药妆采购集中在这里完成。</p>
+              <div class="shop-facts">
+                <div><strong>推荐门店</strong><span>Satsudora 狸小路大王大楼店：10:00-23:00；狸小路 5 丁目店：12:00-23:00。</span></div>
+                <div><strong>补充选择</strong><span>moyuk SAPPORO 的 Satsudora 常规 10:00-22:00，适合作为狸小路东侧的较轻松选择。</span></div>
+                <div><strong>购买策略</strong><span>先列清单再买；药品请确认适用人群与成分，避免只看包装购买。</span></div>
+              </div>
+              <a class="shop-link" href="https://satudora.jp/shop/?area=%E4%B8%AD%E5%A4%AE%E5%8C%BA" target="_blank" rel="noopener noreferrer">Satsudora 札幌中央区门店</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="shop-note">
+          <strong>退税与打包小提醒</strong>
+          <p>参与退税的店铺通常需要出示护照原件；最低金额、可退商品和包装要求以柜台当天规则为准。建议先问店员是否可退税，再把需要托运的液体和易碎品分开放。</p>
+        </div>
       </section>
     </section>
 
