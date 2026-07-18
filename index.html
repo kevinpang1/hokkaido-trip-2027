@@ -28,7 +28,7 @@
       background: var(--paper);
       color: var(--ink);
       font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
-      font-size: 16px;
+      font-size: 17px;
       line-height: 1.55;
     }
     button, a { font: inherit; }
@@ -52,10 +52,10 @@
       background: rgba(7, 24, 30, 0.48);
     }
     .hero > * { position: relative; }
-    .eyebrow { margin: 0 0 9px; font-size: 19px; line-height: 1.25; font-weight: 700; }
-    h1 { margin: 0; font-size: 36px; line-height: 1.1; letter-spacing: 0; }
-    .hero-copy { margin: 12px 0 0; max-width: 520px; font-size: 16px; }
-    .photo-note { margin: 15px 0 0; font-size: 12px; color: rgba(255,255,255,.82); }
+    .eyebrow { margin: 0 0 9px; font-size: 21px; line-height: 1.25; font-weight: 700; }
+    h1 { margin: 0; font-size: 37px; line-height: 1.1; letter-spacing: 0; }
+    .hero-copy { margin: 12px 0 0; max-width: 520px; font-size: 17px; }
+    .photo-note { margin: 15px 0 0; font-size: 13px; color: rgba(255,255,255,.82); }
     .stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -65,12 +65,12 @@
       margin-top: 22px;
     }
     .stat { min-width: 0; padding: 11px 10px; background: rgba(13,39,48,.80); }
-    .stat strong { display: block; font-size: 20px; line-height: 1.1; }
-    .stat span { display: block; margin-top: 4px; font-size: 12px; color: rgba(255,255,255,.78); }
+    .stat strong { display: block; font-size: 21px; line-height: 1.1; }
+    .stat span { display: block; margin-top: 4px; font-size: 13px; color: rgba(255,255,255,.78); }
     .section { padding: 26px 20px; }
     .section + .section { border-top: 1px solid var(--line); }
-    .section-title { margin: 0 0 4px; font-size: 23px; line-height: 1.2; }
-    .section-copy { margin: 0; color: var(--muted); font-size: 14px; }
+    .section-title { margin: 0 0 4px; font-size: 24px; line-height: 1.2; }
+    .section-copy { margin: 0; color: var(--muted); font-size: 15px; }
     .day-strip {
       display: grid;
       grid-auto-flow: column;
@@ -84,7 +84,7 @@
     }
     .day-strip::-webkit-scrollbar { display: none; }
     .day-chip {
-      min-height: 72px;
+      min-height: 76px;
       padding: 9px 8px;
       border: 1px solid var(--line);
       background: #fff;
@@ -93,9 +93,9 @@
       border-radius: 6px;
     }
     .day-chip.active { border-color: var(--pine); background: var(--pine); color: #fff; }
-    .day-chip .day-num { display: block; font-weight: 750; font-size: 13px; }
-    .day-chip .day-date { display: block; margin-top: 3px; font-size: 12px; opacity: .78; }
-    .day-chip .day-place { display: block; margin-top: 4px; font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .day-chip .day-num { display: block; font-weight: 750; font-size: 14px; }
+    .day-chip .day-date { display: block; margin-top: 3px; font-size: 13px; opacity: .78; }
+    .day-chip .day-place { display: block; margin-top: 4px; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .day-view { padding: 0 20px 28px; background: var(--surface); }
     .day-hero {
       min-height: 214px;
@@ -113,60 +113,60 @@
     .day-hero::before { content: ""; position: absolute; inset: 0; background: rgba(7,24,30,.46); }
     .day-hero > * { position: relative; }
     .day-meta { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 9px; }
-    .pill { display: inline-flex; align-items: center; min-height: 26px; padding: 3px 8px; border: 1px solid rgba(255,255,255,.58); font-size: 12px; background: rgba(13,39,48,.65); }
-    .day-hero h2 { margin: 0; font-size: 27px; line-height: 1.15; letter-spacing: 0; }
-    .day-hero p { margin: 8px 0 0; max-width: 570px; font-size: 14px; }
+    .pill { display: inline-flex; align-items: center; min-height: 27px; padding: 3px 8px; border: 1px solid rgba(255,255,255,.58); font-size: 13px; background: rgba(13,39,48,.65); }
+    .day-hero h2 { margin: 0; font-size: 28px; line-height: 1.15; letter-spacing: 0; }
+    .day-hero p { margin: 8px 0 0; max-width: 570px; font-size: 15px; }
     .day-content { border: 1px solid var(--line); border-top: 0; }
     .route-line { padding: 14px 15px; background: var(--snow); border-bottom: 1px solid var(--line); }
-    .route-line strong { display: block; font-size: 15px; }
-    .route-line span { display: block; margin-top: 3px; color: var(--muted); font-size: 13px; }
+    .route-line strong { display: block; font-size: 16px; }
+    .route-line span { display: block; margin-top: 3px; color: var(--muted); font-size: 14px; }
     .agenda { list-style: none; padding: 0; margin: 0; }
     .agenda li { position: relative; padding: 14px 15px 14px 33px; border-bottom: 1px solid var(--line); }
     .agenda li:last-child { border-bottom: 0; }
     .agenda li::before { content: ""; position: absolute; left: 15px; top: 22px; width: 8px; height: 8px; border: 2px solid var(--pine); border-radius: 50%; background: #fff; }
-    .agenda strong { display: block; font-size: 15px; }
-    .agenda span { display: block; margin-top: 3px; color: var(--muted); font-size: 14px; }
+    .agenda strong { display: block; font-size: 16px; }
+    .agenda span { display: block; margin-top: 3px; color: var(--muted); font-size: 15px; }
     .day-tools { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); }
-    .tool-button { min-height: 52px; border: 0; border-right: 1px solid var(--line); background: #fff; color: var(--pine); text-align: left; padding: 10px 14px; font-weight: 700; font-size: 14px; }
+    .tool-button { min-height: 54px; border: 0; border-right: 1px solid var(--line); background: #fff; color: var(--pine); text-align: left; padding: 10px 14px; font-weight: 700; font-size: 15px; }
     .tool-button:last-child { border-right: 0; }
     .expand-area { display: none; padding: 0 15px 15px; border-top: 1px solid var(--line); background: #fbfcfb; }
     .expand-area.open { display: block; }
-    .expand-area h3 { margin: 15px 0 8px; font-size: 15px; }
-    .expand-area p { margin: 0; color: var(--muted); font-size: 14px; }
+    .expand-area h3 { margin: 15px 0 8px; font-size: 16px; }
+    .expand-area p { margin: 0; color: var(--muted); font-size: 15px; }
     .detail-list { margin: 0; padding: 0; list-style: none; }
-    .detail-list li { padding: 9px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+    .detail-list li { padding: 9px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
     .detail-list li:last-child { border-bottom: 0; }
     .detail-list strong { display: block; color: var(--ink); }
     .map-box { display: none; margin: 15px 0 0; }
     .map-box.open { display: block; }
     .map-box img { width: 100%; height: auto; display: block; border: 1px solid var(--line); }
-    .map-box figcaption { margin-top: 7px; color: var(--muted); font-size: 12px; }
+    .map-box figcaption { margin-top: 7px; color: var(--muted); font-size: 13px; }
     .weather-band { background: var(--pine-dark); color: #fff; padding: 25px 20px; }
     .weather-band .section-copy { color: rgba(255,255,255,.76); }
     .weather-grid { display: grid; gap: 1px; margin-top: 16px; background: rgba(255,255,255,.35); border: 1px solid rgba(255,255,255,.38); }
     .weather-row { display: grid; grid-template-columns: 68px 1fr; gap: 10px; padding: 11px; background: rgba(13,39,48,.80); }
-    .weather-row strong { font-size: 13px; }
-    .weather-row span { font-size: 13px; color: rgba(255,255,255,.78); }
+    .weather-row strong { font-size: 14px; }
+    .weather-row span { font-size: 14px; color: rgba(255,255,255,.78); }
     .stay-list { display: grid; gap: 14px; margin-top: 16px; }
     .stay { overflow: hidden; border: 1px solid var(--line); background: var(--surface); box-shadow: var(--shadow); }
     .stay-photo { position: relative; height: 150px; overflow: hidden; background: var(--pine-dark); }
     .stay-photo figure { width: 100%; height: 100%; margin: 0; }
     .stay-photo img { width: 100%; height: 100%; display: block; object-fit: cover; }
-    .stay-photo figcaption, .photo-stack figcaption { position: absolute; right: 9px; bottom: 8px; padding: 3px 6px; color: #fff; background: rgba(13,39,48,.78); font-size: 11px; }
+    .stay-photo figcaption, .photo-stack figcaption { position: absolute; right: 9px; bottom: 8px; padding: 3px 6px; color: #fff; background: rgba(13,39,48,.78); font-size: 12px; }
     .stay-photos { border-top: 1px solid var(--line); }
-    .stay-photos summary { min-height: 52px; padding: 0 14px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; color: var(--pine); font-size: 14px; font-weight: 750; list-style: none; }
+    .stay-photos summary { min-height: 54px; padding: 0 14px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; color: var(--pine); font-size: 15px; font-weight: 750; list-style: none; }
     .stay-photos summary::-webkit-details-marker { display: none; }
-    .stay-photos summary::after { content: "+"; display: inline-grid; place-items: center; width: 24px; height: 24px; border: 1px solid var(--line); color: var(--pine); font-size: 18px; font-weight: 400; }
+    .stay-photos summary::after { content: "+"; display: inline-grid; place-items: center; width: 24px; height: 24px; border: 1px solid var(--line); color: var(--pine); font-size: 19px; font-weight: 400; }
     .stay-photos[open] summary { border-bottom: 1px solid var(--line); }
     .stay-photos[open] summary::after { content: "−"; }
     .photo-stack { display: grid; gap: 10px; padding: 12px; background: #f6f9f8; }
     .photo-stack figure { position: relative; margin: 0; aspect-ratio: 16 / 10; overflow: hidden; background: var(--pine-dark); }
     .photo-stack img { width: 100%; height: 100%; display: block; object-fit: cover; }
     .stay-body { padding: 14px; }
-    .stay-kicker { margin: 0 0 4px; color: var(--pine); font-size: 12px; font-weight: 750; }
-    .stay h3 { margin: 0; font-size: 18px; line-height: 1.25; }
-    .stay p { margin: 7px 0 0; color: var(--muted); font-size: 14px; }
-    .stay-notes { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line); font-size: 13px; }
+    .stay-kicker { margin: 0 0 4px; color: var(--pine); font-size: 13px; font-weight: 750; }
+    .stay h3 { margin: 0; font-size: 19px; line-height: 1.25; }
+    .stay p { margin: 7px 0 0; color: var(--muted); font-size: 15px; }
+    .stay-notes { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line); font-size: 14px; }
     .stay-notes strong { color: var(--ink); }
     .stay a { color: var(--pine); font-weight: 700; text-decoration-thickness: 1px; }
     .booking-list { display: grid; gap: 10px; margin-top: 16px; }
@@ -174,37 +174,37 @@
     .booking-row:last-child { border-bottom: 0; }
     .booking-row input { width: 18px; height: 18px; margin: 2px 0 0; accent-color: var(--pine); }
     .booking-row.done .booking-title { text-decoration: line-through; color: var(--muted); }
-    .booking-title { display: block; font-size: 15px; font-weight: 750; }
-    .booking-copy { display: block; margin-top: 3px; color: var(--muted); font-size: 13px; }
-    .booking-deadline { display: inline-block; margin-top: 6px; padding: 2px 6px; color: #8a3329; background: #f9e9e5; font-size: 12px; }
+    .booking-title { display: block; font-size: 16px; font-weight: 750; }
+    .booking-copy { display: block; margin-top: 3px; color: var(--muted); font-size: 14px; }
+    .booking-deadline { display: inline-block; margin-top: 6px; padding: 2px 6px; color: #8a3329; background: #f9e9e5; font-size: 13px; }
     .booking-deadline.ok { color: #0a5b50; background: #e8f3ef; }
     .booking-deadline.neutral { color: #345b67; background: #e9f2f4; }
     .tip-panel { margin-top: 16px; padding: 15px; border-left: 4px solid var(--sun); background: #fff7ee; }
-    .tip-panel strong { display: block; font-size: 15px; }
-    .tip-panel p { margin: 5px 0 0; font-size: 14px; color: var(--muted); }
+    .tip-panel strong { display: block; font-size: 16px; }
+    .tip-panel p { margin: 5px 0 0; font-size: 15px; color: var(--muted); }
     .shop-list { display: grid; gap: 14px; margin-top: 16px; }
     .shop-card { border: 1px solid var(--line); background: var(--surface); box-shadow: var(--shadow); }
     .shop-card-body { padding: 15px; }
-    .shop-kicker { margin: 0 0 4px; color: var(--pine); font-size: 12px; font-weight: 750; }
-    .shop-card h3 { margin: 0; font-size: 18px; line-height: 1.25; }
-    .shop-card p { margin: 8px 0 0; color: var(--muted); font-size: 14px; }
+    .shop-kicker { margin: 0 0 4px; color: var(--pine); font-size: 13px; font-weight: 750; }
+    .shop-card h3 { margin: 0; font-size: 19px; line-height: 1.25; }
+    .shop-card p { margin: 8px 0 0; color: var(--muted); font-size: 15px; }
     .shop-facts { display: grid; gap: 8px; margin: 14px 0 0; padding: 12px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    .shop-facts div { display: grid; grid-template-columns: 76px 1fr; gap: 8px; font-size: 13px; }
+    .shop-facts div { display: grid; grid-template-columns: 80px 1fr; gap: 8px; font-size: 14px; }
     .shop-facts strong { color: var(--ink); }
-    .shop-link { display: inline-flex; min-height: 40px; align-items: center; margin-top: 12px; padding: 0 12px; border: 1px solid var(--pine); color: var(--pine); font-size: 14px; font-weight: 750; text-decoration: none; }
-    .shop-link::after { content: "↗"; margin-left: 7px; font-size: 16px; }
+    .shop-link { display: inline-flex; min-height: 42px; align-items: center; margin-top: 12px; padding: 0 12px; border: 1px solid var(--pine); color: var(--pine); font-size: 15px; font-weight: 750; text-decoration: none; }
+    .shop-link::after { content: "↗"; margin-left: 7px; font-size: 17px; }
     .shop-note { margin-top: 16px; padding: 15px; border-left: 4px solid var(--lake); background: #eef6f8; }
-    .shop-note strong { display: block; font-size: 15px; }
-    .shop-note p { margin: 5px 0 0; color: var(--muted); font-size: 14px; }
+    .shop-note strong { display: block; font-size: 16px; }
+    .shop-note p { margin: 5px 0 0; color: var(--muted); font-size: 15px; }
     .bottom-nav { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; padding: 10px; background: var(--snow); border-bottom: 1px solid var(--line); }
-    .nav-button { min-height: 58px; padding: 8px 6px; display: flex; align-items: center; justify-content: center; gap: 5px; border: 1px solid #bdc8c5; border-radius: 6px; background: #fff; color: var(--pine-dark); box-shadow: 0 2px 5px rgba(16,38,46,.10); font-size: 14px; font-weight: 750; }
-    .nav-button::after { content: "›"; font-size: 20px; line-height: 1; color: var(--lake); }
+    .nav-button { min-height: 60px; padding: 8px 6px; display: flex; align-items: center; justify-content: center; gap: 5px; border: 1px solid #bdc8c5; border-radius: 6px; background: #fff; color: var(--pine-dark); box-shadow: 0 2px 5px rgba(16,38,46,.10); font-size: 15px; font-weight: 750; }
+    .nav-button::after { content: "›"; font-size: 21px; line-height: 1; color: var(--lake); }
     .nav-button:active { transform: translateY(1px); box-shadow: none; }
     .nav-button.active { border-color: var(--pine); background: var(--pine); color: #fff; box-shadow: 0 3px 8px rgba(23,91,83,.28); }
     .nav-button.active::after { color: #fff; }
     .page { display: none; }
     .page.active { display: block; }
-    .source { padding: 24px 20px 34px; color: var(--muted); font-size: 12px; border-top: 1px solid var(--line); }
+    .source { padding: 24px 20px 34px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); }
     .source a { color: var(--pine); font-weight: 700; }
     @media (min-width: 620px) {
       .hero { min-height: 410px; padding: 36px; }
@@ -232,17 +232,17 @@
     </section>
 
     <nav class="bottom-nav" aria-label="主导航">
-      <button class="nav-button active" type="button" data-page="itinerary-page">每日行程</button>
-      <button class="nav-button" type="button" data-page="stays-page">住宿</button>
-      <button class="nav-button" type="button" data-page="checklist-page">出发前确认</button>
-      <button class="nav-button" type="button" data-page="shopping-page">购物药妆</button>
+      <button class="nav-button active" type="button" data-page="itinerary-page">🗓️ 每日行程</button>
+      <button class="nav-button" type="button" data-page="stays-page">🏠 住宿</button>
+      <button class="nav-button" type="button" data-page="checklist-page">✅ 出发前确认</button>
+      <button class="nav-button" type="button" data-page="shopping-page">🛍️ 购物药妆</button>
     </nav>
 
     <section class="page active" id="itinerary-page" aria-label="每日行程">
       <div class="day-strip" id="day-strip" aria-label="选择行程日期"></div>
       <div class="day-view" id="day-view"></div>
       <section class="weather-band" aria-labelledby="weather-heading">
-        <h2 class="section-title" id="weather-heading">1月天气节奏</h2>
+        <h2 class="section-title" id="weather-heading">❄️ 1月天气节奏</h2>
         <p class="section-copy">以下为气候平均值，不是实际预报。出发前 7-10 天开始看天气；每个转移日前 72 小时再确认。</p>
         <div class="weather-grid">
           <div class="weather-row"><strong>札幌</strong><span>约 -0.6 C 至 -7 C；降雪概率高，留意结冰路面。</span></div>
@@ -257,7 +257,7 @@
 
     <section class="page" id="stays-page" aria-label="住宿">
       <section class="section">
-        <h2 class="section-title">住宿与温泉</h2>
+        <h2 class="section-title">🏠 住宿与温泉</h2>
         <p class="section-copy">已订住宿、含餐情况、价格与取消期限。不同房间或平台的取消政策要分开追踪。</p>
         <div class="stay-list" id="stay-list"></div>
       </section>
@@ -265,16 +265,16 @@
 
     <section class="page" id="checklist-page" aria-label="出发前确认">
       <section class="section">
-        <h2 class="section-title">出发前确认</h2>
+        <h2 class="section-title">✅ 出发前确认</h2>
         <p class="section-copy">勾选状态只保存在这台设备的浏览器中，不会更改原始预订记录。</p>
         <div class="booking-list" id="booking-list"></div>
         <div class="tip-panel">
-          <strong>冬季最重要的一件事</strong>
+          <strong>🧣 冬季最重要的一件事</strong>
           <p>把景点当作可调整选项，把交通和住宿当作固定锚点。遇到雪、强风或低能见度，直接启用室内替代，不必硬撑原计划。</p>
         </div>
       </section>
       <section class="section">
-        <h2 class="section-title">餐厅安排</h2>
+        <h2 class="section-title">🍜 餐厅安排</h2>
         <p class="section-copy">登别 1月24日-26日和洞爷湖 1月26日-27日的酒店晚餐已含，无需额外预订。札幌建议只锁定一顿特别晚餐，其余保持弹性。</p>
         <ul class="detail-list">
           <li><strong>1月21日，札幌</strong>推荐预订一顿想吃的特别晚餐，例如 Sapporo Beer Garden、Sushizen 或 Suginome。</li>
@@ -287,7 +287,7 @@
 
     <section class="page" id="shopping-page" aria-label="札幌购物与药妆">
       <section class="section">
-        <h2 class="section-title">札幌购物与药妆</h2>
+        <h2 class="section-title">🛍️ 札幌购物与药妆</h2>
         <p class="section-copy">按区域安排，尽量利用车站直连、室内商场和狸小路有顶棚步道。时间为当前常规参考；2027年1月出发前请再看官网的节假日安排。</p>
 
         <div class="shop-list">
@@ -350,7 +350,7 @@
         </div>
 
         <div class="shop-note">
-          <strong>退税与打包小提醒</strong>
+          <strong>🧾 退税与打包小提醒</strong>
           <p>参与退税的店铺通常需要出示护照原件；最低金额、可退商品和包装要求以柜台当天规则为准。建议先问店员是否可退税，再把需要托运的液体和易碎品分开放。</p>
         </div>
       </section>
