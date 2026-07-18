@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0d2730">
+  <title>北海道行程 | 2027年1月</title>
+  <style>
+    :root {
+      --ink: #14262e;
+      --muted: #5e6c72;
+      --paper: #f7f5f0;
+      --surface: #ffffff;
+      --line: #d9ddd9;
+      --pine: #175b53;
+      --pine-dark: #0d2730;
+      --lake: #247990;
+      --snow: #edf4f5;
+      --sun: #c7782f;
+      --alert: #9b3b2d;
+      --shadow: 0 12px 30px rgba(16, 38, 46, 0.10);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+      font-size: 16px;
+      line-height: 1.55;
+    }
+    button, a { font: inherit; }
+    button { cursor: pointer; }
+    a { color: inherit; }
+    .shell { width: min(100%, 760px); margin: 0 auto; }
+    .hero {
+      min-height: 360px;
+      padding: 26px 20px 24px;
+      color: #fff;
+      background: #0d2730 url("dashboard_assets/sapporo-winter.png") center / cover no-repeat;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(7, 24, 30, 0.48);
+    }
+    .hero > * { position: relative; }
+    .eyebrow { margin: 0 0 9px; font-size: 13px; font-weight: 700; }
+    h1 { margin: 0; font-size: 36px; line-height: 1.1; letter-spacing: 0; }
+    .hero-copy { margin: 12px 0 0; max-width: 520px; font-size: 16px; }
+    .photo-note { margin: 15px 0 0; font-size: 12px; color: rgba(255,255,255,.82); }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,.36);
+      border: 1px solid rgba(255,255,255,.55);
+      margin-top: 22px;
+    }
+    .stat { min-width: 0; padding: 11px 10px; background: rgba(13,39,48,.80); }
+    .stat strong { display: block; font-size: 20px; line-height: 1.1; }
+    .stat span { display: block; margin-top: 4px; font-size: 12px; color: rgba(255,255,255,.78); }
+    .section { padding: 26px 20px; }
+    .section + .section { border-top: 1px solid var(--line); }
+    .section-title { margin: 0 0 4px; font-size: 23px; line-height: 1.2; }
+    .section-copy { margin: 0; color: var(--muted); font-size: 14px; }
+    .day-strip {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: 88px;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 16px 20px 20px;
+      scrollbar-width: none;
+      background: var(--surface);
+      border-bottom: 1px solid var(--line);
+    }
+    .day-strip::-webkit-scrollbar { display: none; }
+    .day-chip {
+      min-height: 72px;
+      padding: 9px 8px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      text-align: left;
+      border-radius: 6px;
+    }
+    .day-chip.active { border-color: var(--pine); background: var(--pine); color: #fff; }
+    .day-chip .day-num { display: block; font-weight: 750; font-size: 13px; }
+    .day-chip .day-date { display: block; margin-top: 3px; font-size: 12px; opacity: .78; }
+    .day-chip .day-place { display: block; margin-top: 4px; font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .day-view { padding: 0 20px 28px; background: var(--surface); }
+    .day-hero {
+      min-height: 214px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      color: #fff;
+      background-color: var(--pine-dark);
+      background-position: center;
+      background-size: cover;
+      position: relative;
+      overflow: hidden;
+    }
+    .day-hero::before { content: ""; position: absolute; inset: 0; background: rgba(7,24,30,.46); }
+    .day-hero > * { position: relative; }
+    .day-meta { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 9px; }
+    .pill { display: inline-flex; align-items: center; min-height: 26px; padding: 3px 8px; border: 1px solid rgba(255,255,255,.58); font-size: 12px; background: rgba(13,39,48,.65); }
+    .day-hero h2 { margin: 0; font-size: 27px; line-height: 1.15; letter-spacing: 0; }
+    .day-hero p { margin: 8px 0 0; max-width: 570px; font-size: 14px; }
+    .day-content { border: 1px solid var(--line); border-top: 0; }
+    .route-line { padding: 14px 15px; background: var(--snow); border-bottom: 1px solid var(--line); }
+    .route-line strong { display: block; font-size: 15px; }
+    .route-line span { display: block; margin-top: 3px; color: var(--muted); font-size: 13px; }
+    .agenda { list-style: none; padding: 0; margin: 0; }
+    .agenda li { position: relative; padding: 14px 15px 14px 33px; border-bottom: 1px solid var(--line); }
+    .agenda li:last-child { border-bottom: 0; }
+    .agenda li::before { content: ""; position: absolute; left: 15px; top: 22px; width: 8px; height: 8px; border: 2px solid var(--pine); border-radius: 50%; background: #fff; }
+    .agenda strong { display: block; font-size: 15px; }
+    .agenda span { display: block; margin-top: 3px; color: var(--muted); font-size: 14px; }
+    .day-tools { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); }
+    .tool-button { min-height: 52px; border: 0; border-right: 1px solid var(--line); background: #fff; color: var(--pine); text-align: left; padding: 10px 14px; font-weight: 700; font-size: 14px; }
+    .tool-button:last-child { border-right: 0; }
+    .expand-area { display: none; padding: 0 15px 15px; border-top: 1px solid var(--line); background: #fbfcfb; }
+    .expand-area.open { display: block; }
+    .expand-area h3 { margin: 15px 0 8px; font-size: 15px; }
+    .expand-area p { margin: 0; color: var(--muted); font-size: 14px; }
+    .detail-list { margin: 0; padding: 0; list-style: none; }
+    .detail-list li { padding: 9px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+    .detail-list li:last-child { border-bottom: 0; }
+    .detail-list strong { display: block; color: var(--ink); }
+    .map-box { display: none; margin: 15px 0 0; }
+    .map-box.open { display: block; }
+    .map-box img { width: 100%; height: auto; display: block; border: 1px solid var(--line); }
+    .map-box figcaption { margin-top: 7px; color: var(--muted); font-size: 12px; }
+    .weather-band { background: var(--pine-dark); color: #fff; padding: 25px 20px; }
+    .weather-band .section-copy { color: rgba(255,255,255,.76); }
+    .weather-grid { display: grid; gap: 1px; margin-top: 16px; background: rgba(255,255,255,.35); border: 1px solid rgba(255,255,255,.38); }
+    .weather-row { display: grid; grid-template-columns: 68px 1fr; gap: 10px; padding: 11px; background: rgba(13,39,48,.80); }
+    .weather-row strong { font-size: 13px; }
+    .weather-row span { font-size: 13px; color: rgba(255,255,255,.78); }
+    .stay-list { display: grid; gap: 14px; margin-top: 16px; }
+    .stay { overflow: hidden; border: 1px solid var(--line); background: var(--surface); box-shadow: var(--shadow); }
+    .stay-photo { position: relative; height: 150px; overflow: hidden; background: var(--pine-dark); }
+    .stay-photo figure { width: 100%; height: 100%; margin: 0; }
+    .stay-photo img { width: 100%; height: 100%; display: block; object-fit: cover; }
+    .stay-photo figcaption, .photo-stack figcaption { position: absolute; right: 9px; bottom: 8px; padding: 3px 6px; color: #fff; background: rgba(13,39,48,.78); font-size: 11px; }
+    .stay-photos { border-top: 1px solid var(--line); }
+    .stay-photos summary { min-height: 52px; padding: 0 14px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; color: var(--pine); font-size: 14px; font-weight: 750; list-style: none; }
+    .stay-photos summary::-webkit-details-marker { display: none; }
+    .stay-photos summary::after { content: "+"; display: inline-grid; place-items: center; width: 24px; height: 24px; border: 1px solid var(--line); color: var(--pine); font-size: 18px; font-weight: 400; }
+    .stay-photos[open] summary { border-bottom: 1px solid var(--line); }
+    .stay-photos[open] summary::after { content: "−"; }
+    .photo-stack { display: grid; gap: 10px; padding: 12px; background: #f6f9f8; }
+    .photo-stack figure { position: relative; margin: 0; aspect-ratio: 16 / 10; overflow: hidden; background: var(--pine-dark); }
+    .photo-stack img { width: 100%; height: 100%; display: block; object-fit: cover; }
+    .stay-body { padding: 14px; }
+    .stay-kicker { margin: 0 0 4px; color: var(--pine); font-size: 12px; font-weight: 750; }
+    .stay h3 { margin: 0; font-size: 18px; line-height: 1.25; }
+    .stay p { margin: 7px 0 0; color: var(--muted); font-size: 14px; }
+    .stay-notes { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line); font-size: 13px; }
+    .stay-notes strong { color: var(--ink); }
+    .stay a { color: var(--pine); font-weight: 700; text-decoration-thickness: 1px; }
+    .booking-list { display: grid; gap: 10px; margin-top: 16px; }
+    .booking-row { display: grid; grid-template-columns: 20px 1fr; gap: 11px; align-items: start; padding: 13px 0; border-bottom: 1px solid var(--line); }
+    .booking-row:last-child { border-bottom: 0; }
+    .booking-row input { width: 18px; height: 18px; margin: 2px 0 0; accent-color: var(--pine); }
+    .booking-row.done .booking-title { text-decoration: line-through; color: var(--muted); }
+    .booking-title { display: block; font-size: 15px; font-weight: 750; }
+    .booking-copy { display: block; margin-top: 3px; color: var(--muted); font-size: 13px; }
+    .booking-deadline { display: inline-block; margin-top: 6px; padding: 2px 6px; color: #8a3329; background: #f9e9e5; font-size: 12px; }
+    .booking-deadline.ok { color: #0a5b50; background: #e8f3ef; }
+    .booking-deadline.neutral { color: #345b67; background: #e9f2f4; }
+    .tip-panel { margin-top: 16px; padding: 15px; border-left: 4px solid var(--sun); background: #fff7ee; }
+    .tip-panel strong { display: block; font-size: 15px; }
+    .tip-panel p { margin: 5px 0 0; font-size: 14px; color: var(--muted); }
+    .bottom-nav { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 10px; background: var(--snow); border-bottom: 1px solid var(--line); }
+    .nav-button { min-height: 58px; padding: 8px 6px; display: flex; align-items: center; justify-content: center; gap: 5px; border: 1px solid #bdc8c5; border-radius: 6px; background: #fff; color: var(--pine-dark); box-shadow: 0 2px 5px rgba(16,38,46,.10); font-size: 14px; font-weight: 750; }
+    .nav-button::after { content: "›"; font-size: 20px; line-height: 1; color: var(--lake); }
+    .nav-button:active { transform: translateY(1px); box-shadow: none; }
+    .nav-button.active { border-color: var(--pine); background: var(--pine); color: #fff; box-shadow: 0 3px 8px rgba(23,91,83,.28); }
+    .nav-button.active::after { color: #fff; }
+    .page { display: none; }
+    .page.active { display: block; }
+    .source { padding: 24px 20px 34px; color: var(--muted); font-size: 12px; border-top: 1px solid var(--line); }
+    .source a { color: var(--pine); font-weight: 700; }
+    @media (min-width: 620px) {
+      .hero { min-height: 410px; padding: 36px; }
+      .section { padding: 32px 36px; }
+      .day-strip { padding-left: 36px; padding-right: 36px; }
+      .day-view { padding-left: 36px; padding-right: 36px; }
+      .weather-band { padding-left: 36px; padding-right: 36px; }
+      .weather-grid { grid-template-columns: 1fr 1fr; }
+      .source { padding-left: 36px; padding-right: 36px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="hero" aria-label="北海道冬季行程总览">
+      <p class="eyebrow">2027年1月19日 - 1月28日</p>
+      <h1>北海道冬季行程</h1>
+      <p class="hero-copy">9天，以慢节奏、短距离移动和天气缓冲为重点。札幌、小樽、登别温泉、洞爷湖和千岁。</p>
+      <div class="stats" aria-label="行程统计">
+        <div class="stat"><strong>9天</strong><span>北海道正式行程</span></div>
+        <div class="stat"><strong>4处</strong><span>已安排住宿区域</span></div>
+        <div class="stat"><strong>3晚</strong><span>温泉与含晚餐住宿</span></div>
+      </div>
+    </section>
+
+    <nav class="bottom-nav" aria-label="主导航">
+      <button class="nav-button active" type="button" data-page="itinerary-page">每日行程</button>
+      <button class="nav-button" type="button" data-page="stays-page">住宿</button>
+      <button class="nav-button" type="button" data-page="checklist-page">出发前确认</button>
+    </nav>
+
+    <section class="page active" id="itinerary-page" aria-label="每日行程">
+      <div class="day-strip" id="day-strip" aria-label="选择行程日期"></div>
+      <div class="day-view" id="day-view"></div>
+      <section class="weather-band" aria-labelledby="weather-heading">
+        <h2 class="section-title" id="weather-heading">1月天气节奏</h2>
+        <p class="section-copy">以下为气候平均值，不是实际预报。出发前 7-10 天开始看天气；每个转移日前 72 小时再确认。</p>
+        <div class="weather-grid">
+          <div class="weather-row"><strong>札幌</strong><span>约 -0.6 C 至 -7 C；降雪概率高，留意结冰路面。</span></div>
+          <div class="weather-row"><strong>小樽</strong><span>约 -0.5 C 至 -5.8 C；雪天常见，运河步行缩短。</span></div>
+          <div class="weather-row"><strong>登别</strong><span>约 -1.2 C 至 -7.3 C；温泉适合做雪天核心安排。</span></div>
+          <div class="weather-row"><strong>洞爷湖</strong><span>常见约 -1 C 至 -7 C；风与低能见度比雪更影响缆车。</span></div>
+          <div class="weather-row"><strong>千岁</strong><span>约 -1.1 C 至 -12.9 C；第8晚住千岁是早班机缓冲。</span></div>
+          <div class="weather-row"><strong>冬季原则</strong><span>路滑时短走路、多用出租车，户外景点保留室内替代。</span></div>
+        </div>
+      </section>
+    </section>
+
+    <section class="page" id="stays-page" aria-label="住宿">
+      <section class="section">
+        <h2 class="section-title">住宿与温泉</h2>
+        <p class="section-copy">已订住宿、含餐情况、价格与取消期限。不同房间或平台的取消政策要分开追踪。</p>
+        <div class="stay-list" id="stay-list"></div>
+      </section>
+    </section>
+
+    <section class="page" id="checklist-page" aria-label="出发前确认">
+      <section class="section">
+        <h2 class="section-title">出发前确认</h2>
+        <p class="section-copy">勾选状态只保存在这台设备的浏览器中，不会更改原始预订记录。</p>
+        <div class="booking-list" id="booking-list"></div>
+        <div class="tip-panel">
+          <strong>冬季最重要的一件事</strong>
+          <p>把景点当作可调整选项，把交通和住宿当作固定锚点。遇到雪、强风或低能见度，直接启用室内替代，不必硬撑原计划。</p>
+        </div>
+      </section>
+      <section class="section">
+        <h2 class="section-title">餐厅安排</h2>
+        <p class="section-copy">登别 1月24日-26日和洞爷湖 1月26日-27日的酒店晚餐已含，无需额外预订。札幌建议只锁定一顿特别晚餐，其余保持弹性。</p>
+        <ul class="detail-list">
+          <li><strong>1月21日，札幌</strong>推荐预订一顿想吃的特别晚餐，例如 Sapporo Beer Garden、Sushizen 或 Suginome。</li>
+          <li><strong>1月22日，小樽</strong>如确定想吃 Otaru Masazushi，可提前订午餐；其他时间以现场为主。</li>
+          <li><strong>1月23日，札幌</strong>保留为天气缓冲日，餐厅订位可以晚一点或选酒店附近。</li>
+          <li><strong>1月27日，千岁</strong>简单用餐即可，以酒店、千岁市区或新千岁机场餐饮区为主。</li>
+        </ul>
+      </section>
+    </section>
+
+    <footer class="source">
+      景点和营业时间为规划信息，2027年1月出发前仍需复查。此公开版不包含订单编号或个人资料。
+    </footer>
+  </main>
+
+  <script>
+    const days = [
+      {
+        number: "第1天", date: "1月20日", place: "札幌", pace: "轻松", temp: "札幌夜间常低于 0 C", snow: "可能有雪", image: "dashboard_assets/sapporo-winter.png", map: "output/maps/day1_zh.png",
+        title: "抵达新千岁，前往札幌", route: "新千岁机场 -> 札幌站 / 薄野", travel: "约45-50 km；JR Rapid Airport 约37-45分钟，机场巴士约70-90分钟。",
+        agenda: [["抵达与转移", "约 21:20 抵达新千岁机场后，搭 JR 或机场巴士到札幌。路滑或行李多时，最后一段直接打车。"], ["入住", "SAPPORO STREAM HOTEL，薄野。入住后以休息为主。"], ["晚间", "不安排餐厅预订；可在机场、便利店或酒店附近简单解决。"]],
+        details: ["SAPPORO STREAM HOTEL：1月20日-24日，已订2间房；入住 15:00，退房 11:00。", "抵达日不安排重要景点，给航班延误和下雪留余量。", "带行李穿过积雪路段时，出租车是很合理的选择。"]
+      },
+      {
+        number: "第2天", date: "1月21日", place: "札幌", pace: "轻松到适中", temp: "约 -0.6 C 至 -7 C", snow: "高", image: "dashboard_assets/sapporo-winter.png", map: "output/maps/day2_zh.png",
+        title: "札幌市区轻松游", route: "薄野 -> 市场 -> 大通 -> 啤酒博物馆 -> 薄野", travel: "市内各点约 0.5-3 km；冬天打车多为 10-15 分钟。",
+        agenda: [["上午", "二条市场或札幌中央批发市场场外市场二选一。"], ["中午与下午", "钟楼通常 9:00-17:00；大通公园；电视塔 9:00-22:00或札幌啤酒博物馆 11:00-18:00。"], ["晚上", "薄野 / 狸小路；可安排味噌拉面或成吉思汗烤羊肉晚餐。"]],
+        details: ["坏天气：AOAO SAPPORO 10:00-22:00，最后入场 21:00；或逛百货公司美食楼层和地下街。", "市场店铺时间不同，上午到中午前后最稳妥。", "建议为父母预订一顿期待的札幌晚餐，其余保持弹性。"]
+      },
+      {
+        number: "第3天", date: "1月22日", place: "小樽", pace: "适中", temp: "约 -0.5 C 至 -5.8 C", snow: "很高", image: "dashboard_assets/otaru-canal-winter.png", map: "output/maps/day3_zh.png",
+        title: "小樽一日游", route: "札幌 -> 小樽站 -> 运河 -> 堺町通 -> 札幌", travel: "札幌站至小樽站 JR 约35-50分钟；运河至堺町通步行约10-20分钟。",
+        agenda: [["上午", "从札幌搭 JR 到小樽，白天游小樽运河。"], ["午餐", "运河或堺町通附近的寿司、海鲜丼或室内餐厅。"], ["下午", "玻璃店、LeTAO、音乐盒堂；天气和能见度都好时可选天狗山缆车。"]],
+        details: ["小樽音乐盒堂主馆常见 9:00-18:00；堺町通各店多在 10:00-17:00/18:00。", "天狗山冬季缆车：上行 9:00-19:48，下行 9:00-20:00；恶劣天气可能暂停。", "雪天版本：只留运河拍照、室内商店和咖啡，然后提早回札幌。"]
+      },
+      {
+        number: "第4天", date: "1月23日", place: "札幌", pace: "弹性日", temp: "约 -0.6 C 至 -7 C", snow: "高", image: "dashboard_assets/sapporo-winter.png", map: "output/maps/day4_zh.png",
+        title: "札幌天气缓冲日", route: "以札幌为基地，选一个主要方向", travel: "白色恋人公园约 7-9 km，地铁/出租车约25-35分钟；大仓山约6-8 km，出租车约20-30分钟。",
+        agenda: [["天气稳定", "北海道开拓之村冬季 9:00-16:30；或大仓山展望台冬季缆车 9:00-17:00。"], ["室内甜点", "白色恋人小镇 10:00-18:00，收费区域最后入场 16:30。"], ["想体验雪", "泷野 Snow World 冬季 9:00-16:00；或札幌市内咖啡、购物、AOAO。"]],
+        details: ["不要把所有选项塞进同一天。挑一个主活动，加一间咖啡馆或百货公司即可。", "白色恋人收费区域或甜点制作体验建议提前预约。", "晚上早点吃饭，整理去温泉的行李。"]
+      },
+      {
+        number: "第5天", date: "1月24日", place: "白老 / 登别", pace: "适中", temp: "约 -1.2 C 至 -7.3 C", snow: "高", image: "dashboard_assets/noboribetsu-winter.png", map: "output/maps/day5_zh.png",
+        title: "札幌 -> Upopoy -> 登别温泉", route: "札幌 -> 白老 Upopoy -> 登别站 -> 登别温泉", travel: "全日约115-125 km；纯移动约2.5-3.5小时，不含参观时间。",
+        agenda: [["上午", "札幌搭火车前往白老，参观 Upopoy 国立阿伊努民族博物馆及园区。"], ["下午", "继续到登别温泉，入住第一滝本館。"], ["晚上", "泡温泉，享用已含会席晚餐。"]],
+        details: ["Upopoy 冬季 9:00-17:00；周一、12月28日-1月4日及特定维修日闭园，须复查。", "白老站到 Upopoy 步行约10-15分钟；带行李可先安排寄存。", "第一滝本馆已订 1月24日-26日，含会席晚餐和日式早餐。"]
+      },
+      {
+        number: "第6天", date: "1月25日", place: "登别温泉", pace: "轻松", temp: "约 -1.2 C 至 -7.3 C", snow: "高", image: "dashboard_assets/noboribetsu-winter.png", map: "output/maps/day6_zh.png",
+        title: "登别温泉慢节奏日", route: "第一滝本馆 / 温泉街 -> 地狱谷 -> 温泉旅馆", travel: "地狱谷约0.5-1 km，步行或出租车约5-15分钟；其他山下景点出租车约15-20分钟。",
+        agenda: [["上午", "白天短程参观地狱谷，确认步道没有因冰雪关闭。"], ["下午", "回旅馆休息；体力充足时可选伊达时代村或登别海洋公园尼克斯。"], ["晚上", "第二晚温泉，住宿含日式早餐和会席晚餐。"]],
+        details: ["地狱谷为户外区域，无固定大门时间；只建议白天短时间前往。", "伊达时代村冬季 9:00-16:00；尼克斯 9:00-17:00，最后入场 16:30。", "风雪天最好的版本是留在温泉旅馆休息。"]
+      },
+      {
+        number: "第7天", date: "1月26日", place: "洞爷湖", pace: "轻松到适中", temp: "约 -1 C 至 -7 C", snow: "中到高", image: "dashboard_assets/toyako-winter.png", map: "output/maps/day7_zh.png",
+        title: "登别 -> 洞爷湖温泉", route: "登别温泉 -> 登别站 -> 洞爷站 -> 洞爷湖温泉", travel: "登别站至洞爷站约35-60分钟；洞爷站至酒店约15-25分钟。",
+        agenda: [["上午", "慢慢吃早餐，前往洞爷湖温泉。"], ["下午晴天版", "昭和新山和有珠山缆车；单程车程约20-25分钟。"], ["下午风雪版", "洞爷湖温泉区、游客中心 / 火山科学馆、咖啡馆或回酒店休息。"]],
+        details: ["The LakeSuite KOnOSUMIKA 已订 1月26日-27日，1间房 / 3位成人。", "有珠山缆车 2027年1月具体时间待确认；冬季常见约 9:00-16:00 / 16:30，强风或低能见度可暂停。", "酒店含 The Toya 会席风格晚餐和早餐自助餐。"]
+      },
+      {
+        number: "第8天", date: "1月27日", place: "千岁", pace: "轻松", temp: "约 -1.1 C 至 -12.9 C", snow: "中等", image: "dashboard_assets/toyako-winter.png", map: "output/maps/day8_zh.png",
+        title: "洞爷湖 -> 千岁机场缓冲夜", route: "洞爷湖温泉 -> 洞爷站 -> 千岁 -> ANA Crowne Plaza Chitose", travel: "洞爷站至千岁 / 机场周边，火车含接驳按1.5-2.5小时规划；酒店距机场约15分钟。",
+        agenda: [["上午", "吃完早餐后慢慢离开洞爷湖。"], ["下午", "15:00 后入住 ANA Crowne Plaza Chitose，休息并整理行李。"], ["晚上", "简单晚餐，睡前请前台确认第二天清晨出租车或接驳。"]],
+        details: ["这一晚的目的就是保护第9天早班机，不再安排户外景点或绕路。", "当前追踪：可在 2027年1月26日 18:00 前免费取消，以酒店当地时间为准。", "雪天抵达机场要留更多时间。"]
+      },
+      {
+        number: "第9天", date: "1月28日", place: "新千岁机场", pace: "非常轻松", temp: "严寒清晨", snow: "中等", image: "dashboard_assets/sapporo-winter.png", map: "output/maps/day9_zh.png",
+        title: "从新千岁机场离开", route: "ANA Crowne Plaza Chitose -> 新千岁机场", travel: "约5.6 km；正常约15分钟，雪天带行李按15-25分钟计划。",
+        agenda: [["清晨", "按航班时间提前退房，直接前往机场。"], ["机场", "国际航班建议至少提前2.5-3小时到机场；大雪或托运行李多时再加时间。"], ["出发前", "护照、冬季外套、药品、行李和免税资料放在方便取用的位置。"]],
+        details: ["今天不安排观光，目标是稳妥完成离境。", "前一晚已确认去机场的交通时段。", "如时间允许，可在机场简单早餐和购买伴手礼。"]
+      }
+    ];
+
+    const stays = [
+      { area: "札幌 · 4晚", hotel: "SAPPORO STREAM HOTEL", fallback: "dashboard_assets/sapporo-winter.png", dates: "2027年1月20日-24日", body: "薄野基地；与薄野站直连。已订两间房，入住 15:00，退房 11:00。", notes: "房间1：总价 USD 724.54，1月18日 23:59 前可取消。房间2：Trip total USD 565.08，1月17日 00:00 前可全额退款。", url: "https://www.tokyuhotels.co.jp/en/sapporostream/index.html", photos: [
+        { src: "https://www.tokyuhotels.co.jp/sapporostream/room/room_additional_images_1920-720_2024-118-1.png", alt: "SAPPORO STREAM HOTEL 客房与城市景观", label: "酒店官网公开客房图" },
+        { src: "https://www.tokyuhotels.co.jp/sapporostream/room/room_additional_images_1920-720_2024-118-2.png", alt: "SAPPORO STREAM HOTEL 客房设施", label: "酒店官网公开客房图" },
+        { src: "https://www.tokyuhotels.co.jp/sapporostream/room/room_additional_images_1920-720_2024-118-3.png", alt: "SAPPORO STREAM HOTEL 客房空间", label: "酒店官网公开客房图" }
+      ] },
+      { area: "登别温泉 · 2晚", hotel: "Noboribetsu Onsen Dai-ichi Takimotokan 第一滝本馆", fallback: "dashboard_assets/noboribetsu-winter.png", dates: "2027年1月24日-26日", body: "Deluxe Japanese-Style Room，3位成人。已含会席晚餐与日式早餐。", notes: "总价 USD 981.08；1月16日 23:59 前可无风险取消。", url: "https://takimotokan.co.jp/en/", photos: [
+        { src: "https://takimotokan.co.jp/wp-content/uploads/2024/06/room-slider-1.webp", alt: "第一滝本馆客房", label: "酒店官网公开客房图" },
+        { src: "https://takimotokan.co.jp/wp-content/uploads/2024/06/taki-bath.webp", alt: "第一滝本馆温泉", label: "酒店官网公开温泉图" },
+        { src: "https://takimotokan.co.jp/wp-content/uploads/2024/06/cuisine-photo-1.webp", alt: "第一滝本馆料理", label: "酒店官网公开餐食图" }
+      ] },
+      { area: "洞爷湖温泉 · 1晚", hotel: "The LakeSuite KOnOSUMIKA", fallback: "dashboard_assets/toyako-winter.png", dates: "2027年1月26日-27日", body: "露天温泉角落露台房，3位成人。含 The Toya 晚餐和早餐自助餐。", notes: "总支付 ¥120,555，已预付；1月11日 23:59 前免费取消。", url: "https://www.konosumika.com/en/", photos: [
+        { src: "https://www.konosumika.com/wp-content/uploads/2019/08/コーナーテラス【4名定員】_4.jpg", alt: "湖之栖角落露台房", label: "酒店官网公开客房图" },
+        { src: "https://www.konosumika.com/wp-content/uploads/2019/10/7F_701_2491.jpg", alt: "湖之栖露台与洞爷湖景观", label: "酒店官网公开露台图" },
+        { src: "https://www.konosumika.com/wp-content/uploads/2019/10/7F_701_2501.jpg", alt: "湖之栖私人露天温泉", label: "酒店官网公开温泉图" }
+      ] },
+      { area: "千岁 · 1晚", hotel: "ANA Crowne Plaza Chitose", fallback: "dashboard_assets/sapporo-winter.png", dates: "2027年1月27日-28日", body: "早班机缓冲夜；酒店离新千岁机场约15分钟。", notes: "当前追踪：1月26日 18:00 前可免费取消。", url: "https://www.ihg.com/crowneplaza/hotels/us/en/hokkaido/ctsja/hoteldetail", photos: [
+        { src: "dashboard_assets/sapporo-winter.png", alt: "千岁冬季景观", label: "" }
+      ] }
+    ];
+
+    const checklist = [
+      { id: "weather", title: "出发前 7-10 天开始查看天气", copy: "札幌、小樽、登别、洞爷湖和千岁分别确认；每个转移日前 72 小时再复查。", tag: "天气优先", tone: "neutral" },
+      { id: "sapporo-room2", title: "确认札幌房间2退款截止", copy: "SAPPORO STREAM HOTEL 房间2：1月17日 00:00 前可全额退款。", tag: "1月17日", tone: "warn" },
+      { id: "noboribetsu", title: "确认登别温泉取消截止", copy: "第一滝本馆：1月16日 23:59 前可无风险取消。", tag: "1月16日", tone: "warn" },
+      { id: "sapporo-room1", title: "确认札幌房间1取消截止", copy: "SAPPORO STREAM HOTEL 房间1：1月18日 23:59 前可取消。", tag: "1月18日", tone: "warn" },
+      { id: "toyako", title: "确认洞爷湖取消截止", copy: "The LakeSuite KOnOSUMIKA：1月11日 23:59 前免费取消。", tag: "1月11日", tone: "warn" },
+      { id: "chitose", title: "确认千岁酒店及机场接驳", copy: "ANA Crowne Plaza Chitose：1月26日 18:00 前可免费取消；入住时预约清晨交通。", tag: "1月26日", tone: "neutral" },
+      { id: "hours", title: "复查景点营业时间与临时停运", copy: "特别关注 Upopoy、天狗山缆车、有珠山缆车、白色恋人公园与餐厅。", tag: "出发前2-4周", tone: "neutral" },
+      { id: "dinners", title: "完成非酒店晚餐的预订决定", copy: "1月21日、22日、23日札幌 / 小樽；1月27日千岁。登别与洞爷湖晚餐已含。", tag: "餐厅", tone: "ok" },
+      { id: "airport", title: "确认去程与回程托运行李", copy: "分开出票的 KWL -> PVG 和 PVG -> CTS，须确认是否需在浦东取行李后重新托运。", tag: "行李", tone: "neutral" }
+    ];
+
+    let activeDay = 0;
+    const escapeHtml = (text) => String(text).replace(/[&<>'"]/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[char]));
+
+    function renderDayStrip() {
+      const holder = document.getElementById("day-strip");
+      holder.innerHTML = days.map((day, index) => `
+        <button class="day-chip ${index === activeDay ? "active" : ""}" type="button" data-day="${index}" aria-pressed="${index === activeDay}">
+          <span class="day-num">${day.number}</span>
+          <span class="day-date">${day.date}</span>
+          <span class="day-place">${day.place}</span>
+        </button>`).join("");
+      holder.querySelectorAll(".day-chip").forEach((button) => {
+        button.addEventListener("click", () => { activeDay = Number(button.dataset.day); renderDayStrip(); renderDay(); });
+      });
+    }
+
+    function renderDay() {
+      const day = days[activeDay];
+      document.getElementById("day-view").innerHTML = `
+        <article class="day-card">
+          <div class="day-hero" style="background-image: url('${day.image}')">
+            <div class="day-meta"><span class="pill">${day.date}</span><span class="pill">${day.pace}</span><span class="pill">${day.snow}</span></div>
+            <h2>${day.title}</h2>
+            <p>${day.temp}。${day.snow === "高" || day.snow === "很高" ? "安排短距离步行，并准备室内替代。" : "关注风、能见度和机场交通。"}</p>
+          </div>
+          <div class="day-content">
+            <div class="route-line"><strong>${day.route}</strong><span>${day.travel}</span></div>
+            <ol class="agenda">${day.agenda.map(([title, text]) => `<li><strong>${title}</strong><span>${text}</span></li>`).join("")}</ol>
+            <div class="day-tools">
+              <button class="tool-button" type="button" data-toggle="details">查看当天提醒</button>
+              <button class="tool-button" type="button" data-toggle="map">查看路线图</button>
+            </div>
+            <div class="expand-area" id="details"><h3>交通、天气与营业时间</h3><ul class="detail-list">${day.details.map((item) => `<li>${item}</li>`).join("")}</ul></div>
+            <figure class="map-box" id="map"><img src="${day.map}" alt="${day.number}${day.title}的路线示意图"><figcaption>路线示意图仅供理解当天移动范围，不作为实际导航。</figcaption></figure>
+          </div>
+        </article>`;
+      document.querySelectorAll(".tool-button").forEach((button) => {
+        button.addEventListener("click", () => document.getElementById(button.dataset.toggle).classList.toggle("open"));
+      });
+    }
+
+    function hotelPhotoMarkup(photo, stay) {
+      return `<figure><img src="${photo.src}" alt="${photo.alt}" data-fallback="${stay.fallback}" onerror="this.onerror=null;this.src=this.dataset.fallback;">${photo.label ? `<figcaption class="photo-tag">${photo.label}</figcaption>` : ""}</figure>`;
+    }
+
+    function renderStays() {
+      document.getElementById("stay-list").innerHTML = stays.map((stay) => {
+        const primaryPhoto = { src: stay.fallback, alt: `${stay.hotel}冬季景观`, label: "" };
+        const extraPhotos = stay.photos;
+        return `
+          <article class="stay">
+            <div class="stay-photo" aria-label="${stay.hotel}主图">${hotelPhotoMarkup(primaryPhoto, stay)}</div>
+            <div class="stay-body"><p class="stay-kicker">${stay.area} · ${stay.dates}</p><h3>${stay.hotel}</h3><p>${stay.body}</p><div class="stay-notes"><strong>价格与取消：</strong>${stay.notes}</div><p><a href="${stay.url}" target="_blank" rel="noopener">酒店官网</a></p></div>
+            ${extraPhotos.length ? `<details class="stay-photos"><summary>照片（${extraPhotos.length}张）</summary><div class="photo-stack" aria-label="${stay.hotel}更多照片">${extraPhotos.map((photo) => hotelPhotoMarkup(photo, stay)).join("")}</div></details>` : ""}
+          </article>`;
+      }).join("");
+    }
+
+    function renderChecklist() {
+      const saved = JSON.parse(localStorage.getItem("hokkaido-checklist-2027") || "{}");
+      document.getElementById("booking-list").innerHTML = checklist.map((item) => `
+        <label class="booking-row ${saved[item.id] ? "done" : ""}" for="check-${item.id}">
+          <input id="check-${item.id}" type="checkbox" data-check="${item.id}" ${saved[item.id] ? "checked" : ""}>
+          <span><span class="booking-title">${item.title}</span><span class="booking-copy">${item.copy}</span><span class="booking-deadline ${item.tone}">${item.tag}</span></span>
+        </label>`).join("");
+      document.querySelectorAll("[data-check]").forEach((box) => box.addEventListener("change", () => {
+        const state = JSON.parse(localStorage.getItem("hokkaido-checklist-2027") || "{}");
+        state[box.dataset.check] = box.checked;
+        localStorage.setItem("hokkaido-checklist-2027", JSON.stringify(state));
+        renderChecklist();
+      }));
+    }
+
+    document.querySelectorAll(".nav-button").forEach((button) => button.addEventListener("click", () => {
+      document.querySelectorAll(".nav-button").forEach((item) => item.classList.toggle("active", item === button));
+      document.querySelectorAll(".page").forEach((page) => page.classList.toggle("active", page.id === button.dataset.page));
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }));
+
+    renderDayStrip();
+    renderDay();
+    renderStays();
+    renderChecklist();
+  </script>
+</body>
+</html>
