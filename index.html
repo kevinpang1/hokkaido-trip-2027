@@ -165,6 +165,7 @@
     .stay-body { padding: 14px; }
     .stay-kicker { margin: 0 0 4px; color: var(--pine); font-size: 13px; font-weight: 750; }
     .stay h3 { margin: 0; font-size: 19px; line-height: 1.25; }
+    .stay-chinese { color: var(--muted); font-size: .84em; font-weight: 650; }
     .stay p { margin: 7px 0 0; color: var(--muted); font-size: 15px; }
     .stay-notes { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line); font-size: 14px; }
     .stay-notes strong { color: var(--ink); }
@@ -420,22 +421,22 @@
     ];
 
     const stays = [
-      { area: "札幌 · 4晚", hotel: "SAPPORO STREAM HOTEL", fallback: "dashboard_assets/sapporo-winter.png", dates: "2027年1月20日-24日", body: "薄野基地；与薄野站直连。已订两间房，入住 15:00，退房 11:00。", notes: "房间1：总价 USD 724.54，1月18日 23:59 前可取消。房间2：Trip total USD 565.08，1月17日 00:00 前可全额退款。", url: "https://www.tokyuhotels.co.jp/en/sapporostream/index.html", photos: [
+      { area: "札幌 · 4晚", hotel: "SAPPORO STREAM HOTEL", chineseName: "札幌STREAM酒店", fallback: "dashboard_assets/sapporo-winter.png", dates: "2027年1月20日-24日", body: "薄野基地；与薄野站直连。已订两间房，入住 15:00，退房 11:00。", notes: "房间1：总价 USD 724.54，1月18日 23:59 前可取消。房间2：Trip total USD 565.08，1月17日 00:00 前可全额退款。", url: "https://www.tokyuhotels.co.jp/en/sapporostream/index.html", photos: [
         { src: "https://www.tokyuhotels.co.jp/sapporostream/room/room_additional_images_1920-720_2024-118-1.png", alt: "SAPPORO STREAM HOTEL 客房与城市景观", label: "酒店官网公开客房图" },
         { src: "https://www.tokyuhotels.co.jp/sapporostream/room/room_additional_images_1920-720_2024-118-2.png", alt: "SAPPORO STREAM HOTEL 客房设施", label: "酒店官网公开客房图" },
         { src: "https://www.tokyuhotels.co.jp/sapporostream/room/room_additional_images_1920-720_2024-118-3.png", alt: "SAPPORO STREAM HOTEL 客房空间", label: "酒店官网公开客房图" }
       ] },
-      { area: "登别温泉 · 2晚", hotel: "Noboribetsu Onsen Dai-ichi Takimotokan 第一滝本馆", fallback: "dashboard_assets/noboribetsu-winter.png", dates: "2027年1月24日-26日", body: "Deluxe Japanese-Style Room，3位成人。已含会席晚餐与日式早餐。", notes: "总价 USD 981.08；1月16日 23:59 前可无风险取消。", url: "https://takimotokan.co.jp/en/", photos: [
+      { area: "登别温泉 · 2晚", hotel: "Noboribetsu Onsen Dai-ichi Takimotokan", chineseName: "登别温泉第一泷本馆", fallback: "dashboard_assets/noboribetsu-winter.png", dates: "2027年1月24日-26日", body: "Deluxe Japanese-Style Room，3位成人。已含会席晚餐与日式早餐。", notes: "总价 USD 981.08；1月16日 23:59 前可无风险取消。", url: "https://takimotokan.co.jp/en/", photos: [
         { src: "https://takimotokan.co.jp/wp-content/uploads/2024/06/room-slider-1.webp", alt: "第一滝本馆客房", label: "酒店官网公开客房图" },
         { src: "https://takimotokan.co.jp/wp-content/uploads/2024/06/taki-bath.webp", alt: "第一滝本馆温泉", label: "酒店官网公开温泉图" },
         { src: "https://takimotokan.co.jp/wp-content/uploads/2024/06/cuisine-photo-1.webp", alt: "第一滝本馆料理", label: "酒店官网公开餐食图" }
       ] },
-      { area: "洞爷湖温泉 · 1晚", hotel: "The LakeSuite KOnOSUMIKA", fallback: "dashboard_assets/toyako-winter.png", dates: "2027年1月26日-27日", body: "露天温泉角落露台房，3位成人。含 The Toya 晚餐和早餐自助餐。", notes: "总支付 ¥120,555，已预付；1月11日 23:59 前免费取消。", url: "https://www.konosumika.com/en/", photos: [
+      { area: "洞爷湖温泉 · 1晚", hotel: "The LakeSuite KOnOSUMIKA", chineseName: "洞爷湖湖之栖酒店", fallback: "dashboard_assets/toyako-winter.png", dates: "2027年1月26日-27日", body: "露天温泉角落露台房，3位成人。含 The Toya 晚餐和早餐自助餐。", notes: "总支付 ¥120,555，已预付；1月11日 23:59 前免费取消。", url: "https://www.konosumika.com/en/", photos: [
         { src: "https://www.konosumika.com/wp-content/uploads/2019/08/コーナーテラス【4名定員】_4.jpg", alt: "湖之栖角落露台房", label: "酒店官网公开客房图" },
         { src: "https://www.konosumika.com/wp-content/uploads/2019/10/7F_701_2491.jpg", alt: "湖之栖露台与洞爷湖景观", label: "酒店官网公开露台图" },
         { src: "https://www.konosumika.com/wp-content/uploads/2019/10/7F_701_2501.jpg", alt: "湖之栖私人露天温泉", label: "酒店官网公开温泉图" }
       ] },
-      { area: "千岁 · 1晚", hotel: "ANA Crowne Plaza Chitose", fallback: "dashboard_assets/sapporo-winter.png", dates: "2027年1月27日-28日", body: "早班机缓冲夜；酒店离新千岁机场约15分钟。", notes: "当前追踪：1月26日 18:00 前可免费取消。", url: "https://www.ihg.com/crowneplaza/hotels/us/en/hokkaido/ctsja/hoteldetail", photos: [
+      { area: "千岁 · 1晚", hotel: "ANA Crowne Plaza Chitose", chineseName: "ANA皇冠假日酒店千岁", fallback: "dashboard_assets/sapporo-winter.png", dates: "2027年1月27日-28日", body: "早班机缓冲夜；酒店离新千岁机场约15分钟。", notes: "当前追踪：1月26日 18:00 前可免费取消。", url: "https://www.ihg.com/crowneplaza/hotels/us/en/hokkaido/ctsja/hoteldetail", photos: [
         { src: "dashboard_assets/sapporo-winter.png", alt: "千岁冬季景观", label: "" }
       ] }
     ];
@@ -504,7 +505,7 @@
         return `
           <article class="stay">
             <div class="stay-photo" aria-label="${stay.hotel}主图">${hotelPhotoMarkup(primaryPhoto, stay)}</div>
-            <div class="stay-body"><p class="stay-kicker">${stay.area} · ${stay.dates}</p><h3>${stay.hotel}</h3><p>${stay.body}</p><div class="stay-notes"><strong>价格与取消：</strong>${stay.notes}</div><p><a href="${stay.url}" target="_blank" rel="noopener">酒店官网</a></p></div>
+            <div class="stay-body"><p class="stay-kicker">${stay.area} · ${stay.dates}</p><h3>${stay.hotel} <span class="stay-chinese">（${stay.chineseName}）</span></h3><p>${stay.body}</p><div class="stay-notes"><strong>价格与取消：</strong>${stay.notes}</div><p><a href="${stay.url}" target="_blank" rel="noopener">酒店官网</a></p></div>
             ${extraPhotos.length ? `<details class="stay-photos"><summary>照片（${extraPhotos.length}张）</summary><div class="photo-stack" aria-label="${stay.hotel}更多照片">${extraPhotos.map((photo) => hotelPhotoMarkup(photo, stay)).join("")}</div></details>` : ""}
           </article>`;
       }).join("");
