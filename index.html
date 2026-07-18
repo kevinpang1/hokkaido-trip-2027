@@ -197,7 +197,25 @@
     .shop-note { margin-top: 16px; padding: 15px; border-left: 4px solid var(--lake); background: #eef6f8; }
     .shop-note strong { display: block; font-size: 16px; }
     .shop-note p { margin: 5px 0 0; color: var(--muted); font-size: 15px; }
+    .flight-list { display: grid; gap: 14px; margin-top: 16px; }
+    .flight-card { overflow: hidden; border: 1px solid var(--line); background: var(--surface); box-shadow: var(--shadow); }
+    .flight-card-header { padding: 14px 15px; color: #fff; background: var(--pine-dark); }
+    .flight-kicker { margin: 0; color: rgba(255,255,255,.76); font-size: 13px; font-weight: 750; }
+    .flight-card h3 { margin: 4px 0 0; font-size: 20px; line-height: 1.25; }
+    .flight-leg { padding: 13px 15px; border-bottom: 1px solid var(--line); }
+    .flight-leg:last-child { border-bottom: 0; }
+    .flight-leg strong { display: block; color: var(--ink); font-size: 16px; }
+    .flight-leg span { display: block; margin-top: 4px; color: var(--muted); font-size: 15px; }
+    .flight-stopover { padding: 14px 15px; border-bottom: 1px solid var(--line); background: #fff7ee; }
+    .flight-stopover strong { display: block; color: var(--ink); font-size: 16px; }
+    .flight-stopover p { margin: 4px 0 0; color: var(--pine-dark); font-size: 15px; font-weight: 750; }
+    .flight-stopover span { display: block; margin-top: 4px; color: var(--muted); font-size: 14px; }
+    .flight-stopover .flight-alert { color: #8a3329; }
+    .flight-note { margin-top: 16px; padding: 15px; border-left: 4px solid var(--pine); background: #f0f6f4; }
+    .flight-note strong { display: block; font-size: 16px; }
+    .flight-note p { margin: 5px 0 0; color: var(--muted); font-size: 15px; }
     .bottom-nav { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; padding: 10px; background: var(--snow); border-bottom: 1px solid var(--line); }
+    .flight-button { grid-column: 1 / -1; order: 1; }
     .nav-button { min-height: 60px; padding: 8px 6px; display: flex; align-items: center; justify-content: center; gap: 5px; border: 1px solid #bdc8c5; border-radius: 6px; background: #fff; color: var(--pine-dark); box-shadow: 0 2px 5px rgba(16,38,46,.10); font-size: 15px; font-weight: 750; }
     .nav-button::after { content: "›"; font-size: 21px; line-height: 1; color: var(--lake); }
     .nav-button:active { transform: translateY(1px); box-shadow: none; }
@@ -210,7 +228,8 @@
     @media (min-width: 620px) {
       .hero { min-height: 410px; padding: 36px; }
       .section { padding: 32px 36px; }
-      .bottom-nav { grid-template-columns: repeat(4, 1fr); }
+      .bottom-nav { grid-template-columns: repeat(5, 1fr); }
+      .flight-button { grid-column: auto; }
       .day-strip { padding-left: 36px; padding-right: 36px; }
       .day-view { padding-left: 36px; padding-right: 36px; }
       .weather-band { padding-left: 36px; padding-right: 36px; }
@@ -234,6 +253,7 @@
 
     <nav class="bottom-nav" aria-label="主导航">
       <button class="nav-button active" type="button" data-page="itinerary-page">🗓️ 每日行程</button>
+      <button class="nav-button flight-button" type="button" data-page="flights-page">✈️ 航班信息</button>
       <button class="nav-button" type="button" data-page="stays-page">🏠 住宿</button>
       <button class="nav-button" type="button" data-page="checklist-page">✅ 出发前确认</button>
       <button class="nav-button" type="button" data-page="shopping-page">🛍️ 购物药妆</button>
@@ -252,6 +272,51 @@
           <div class="weather-row"><strong>洞爷湖</strong><span>常见约 -1 C 至 -7 C；风与低能见度比雪更影响缆车。</span></div>
           <div class="weather-row"><strong>千岁</strong><span>约 -1.1 C 至 -12.9 C；第8晚住千岁是早班机缓冲。</span></div>
           <div class="weather-row"><strong>冬季原则</strong><span>路滑时短走路、多用出租车，户外景点保留室内替代。</span></div>
+        </div>
+      </section>
+    </section>
+
+    <section class="page" id="flights-page" aria-label="航班信息">
+      <section class="section">
+        <h2 class="section-title">✈️ 航班总览</h2>
+        <p class="section-copy">所有时间均为当地时间。公开版仅保留航线、航班和时刻；已隐藏旅客姓名、确认号、票号、座位、邮箱和电话。</p>
+
+        <div class="flight-list">
+          <article class="flight-card">
+            <div class="flight-card-header"><p class="flight-kicker">去程 · 旧金山出发组</p><h3>SFO → HND → CTS</h3></div>
+            <div class="flight-leg"><strong>JL 1 · 1月19日</strong><span>旧金山 SFO 12:55 起飞 → 东京羽田 HND 1月20日 17:20 抵达。</span></div>
+            <div class="flight-leg"><strong>羽田转机 2小时25分 · JL 529</strong><span>HND 19:45 起飞 → 新千岁 CTS 21:20 抵达。</span></div>
+          </article>
+
+          <article class="flight-card">
+            <div class="flight-card-header"><p class="flight-kicker">去程 · 桂林出发组</p><h3>KWL → PVG → HND → CTS</h3></div>
+            <div class="flight-leg"><strong>CA 8570 · 1月19日</strong><span>桂林 KWL 22:35 起飞 → 上海浦东 PVG 1月20日 00:40 抵达。</span></div>
+            <div class="flight-stopover"><strong>🏨 上海机场过夜 · 1晚</strong><p>Holiday Inn Shanghai Pudong Airport（上海浦东机场假日酒店）</p><span>预订显示：1月19日入住、1月20日退房；标准大床房。1月18日 18:00（当地时间）前可免费取消。</span><span class="flight-alert">需确认：航班于 1月20日 00:40 抵达浦东，请提前向酒店确认深夜到店安排，以及房晚日期是否与实际抵达相符。</span></div>
+            <div class="flight-leg"><strong>JL 80 · 1月20日</strong><span>上海浦东 PVG 08:55 起飞 → 东京羽田 HND 12:40 抵达。</span></div>
+            <div class="flight-leg"><strong>羽田转机 7小时05分 · JL 529</strong><span>HND 19:45 起飞 → 新千岁 CTS 21:20 抵达。</span></div>
+          </article>
+
+          <article class="flight-card">
+            <div class="flight-card-header"><p class="flight-kicker">回程 · 旧金山组</p><h3>CTS → HND → SFO</h3></div>
+            <div class="flight-leg"><strong>JL 510 · 1月28日</strong><span>新千岁 CTS 12:55 起飞 → 东京羽田 HND 14:40 抵达。</span></div>
+            <div class="flight-leg"><strong>羽田转机 3小时25分 · JL 2</strong><span>HND 18:05 起飞 → 旧金山 SFO 10:25 抵达。</span></div>
+          </article>
+
+          <article class="flight-card">
+            <div class="flight-card-header"><p class="flight-kicker">回程 · 南湾组</p><h3>CTS → HND → LAX → SJC</h3></div>
+            <div class="flight-leg"><strong>JL 510 · 1月28日</strong><span>新千岁 CTS 12:55 起飞 → 东京羽田 HND 14:40 抵达。</span></div>
+            <div class="flight-leg"><strong>羽田转机 2小时25分 · JL 16</strong><span>HND 17:05 起飞 → 洛杉矶 LAX 09:55 抵达。</span></div>
+            <div class="flight-leg"><strong>LAX 转机 3小时40分 · DL 3842</strong><span>洛杉矶 LAX 13:35 起飞 → 圣何塞 SJC 14:52 抵达。</span></div>
+          </article>
+        </div>
+
+        <div class="flight-note">
+          <strong>🧳 已知托运行李参考</strong>
+          <p>CA 8570：首件托运行李已含，每件 20 kg。JAL 执飞的 Alaska 里程兑换国际经济舱：按每人 2 件托运、每件 23 kg 规划；随身为 1 件登机箱加 1 件个人物品、合计 10 kg。Delta DL 3842 的具体托运额度尚未显示，请出发前在 Delta 订单中确认。</p>
+        </div>
+        <div class="flight-note">
+          <strong>⏱️ 出发前复查</strong>
+          <p>跨境行程和冬季航班建议在出发前 72 小时、线上值机开启时，再确认时刻、航站楼、登机口和行李规则。</p>
         </div>
       </section>
     </section>
