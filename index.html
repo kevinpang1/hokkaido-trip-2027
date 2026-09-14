@@ -56,6 +56,8 @@
     h1 { margin: 0; font-size: 37px; line-height: 1.1; letter-spacing: 0; }
     .hero-copy { margin: 12px 0 0; max-width: 520px; font-size: 17px; }
     .photo-note { margin: 15px 0 0; font-size: 13px; color: rgba(255,255,255,.82); }
+    .version-label { margin: 10px 0 0; font-size: 13px; color: rgba(255,255,255,.86); }
+    .version-label span { display: inline-block; padding: 3px 7px; border: 1px solid rgba(255,255,255,.52); background: rgba(13,39,48,.54); }
     .stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -246,6 +248,7 @@
       <p class="eyebrow">2027年1月19日 - 1月28日</p>
       <h1>北海道冬季行程</h1>
       <p class="hero-copy">9天，以慢节奏、短距离移动和天气缓冲为重点。札幌、小樽、登别温泉、洞爷湖和千岁。</p>
+      <p class="version-label"><span>行程版本 v1.2 · 更新于 2026年9月14日</span></p>
       <div class="stats" aria-label="行程统计">
         <div class="stat"><strong>9天</strong><span>北海道正式行程</span></div>
         <div class="stat"><strong>4处</strong><span>已安排住宿区域</span></div>
@@ -495,9 +498,9 @@
       },
       {
         number: "第3天", date: "1月22日", place: "小樽", pace: "适中", temp: "约 -0.5 C 至 -5.8 C", snow: "很高", image: "dashboard_assets/otaru-canal-winter.png", map: "output/maps/day3_zh.png",
-        title: "小樽一日游", route: "札幌 -> 小樽站 -> 运河 -> 堺町通 -> 札幌", travel: "札幌站至小樽站 JR 约35-50分钟；运河至堺町通步行约10-20分钟。",
-        agenda: [["上午", "从札幌搭 JR 到小樽，白天游小樽运河。"], ["午餐", "运河或堺町通附近的寿司、海鲜丼或室内餐厅。"], ["下午", "玻璃店、LeTAO、音乐盒堂；天气和能见度都好时可选天狗山缆车。"]],
-        details: ["小樽音乐盒堂主馆常见 9:00-18:00；堺町通各店多在 10:00-17:00/18:00。", "天狗山冬季缆车：上行 9:00-19:48，下行 9:00-20:00；恶劣天气可能暂停。", "雪天版本：只留运河拍照、室内商店和咖啡，然后提早回札幌。"]
+        title: "小樽一日游", route: "札幌 -> 小樽站 / 三角市场 -> 运河 -> 堺町通 -> 札幌", travel: "札幌站至小樽站 JR 约35-50分钟；可用交通卡。小樽站到三角市场步行约1分钟。",
+        agenda: [["上午", "JR 到小樽后先吃三角市场海鲜早餐或早午餐；单点前问清价格、计价单位和加工费。"], ["上午晚些时候", "到浅草桥附近拍小樽运河和雪中的仓库；风大或下雪时缩短停留。"], ["下午", "堺町通逛北一硝子、LeTAO 和小樽音乐盒堂 / 蒸汽钟；一路进店、咖啡馆取暖。"]],
+        details: ["天狗山是天气好的加选项，不是必做。出发前确认缆车运营、能见度、末班缆车和返程交通；想看日落时，要相应缩短市区路线。", "小樽音乐盒堂主馆常见 9:00-18:00；堺町通各店多在 10:00-17:00/18:00。", "雪天版本：三角市场、运河短暂停拍、室内商店、甜品和咖啡；直接跳过天狗山并提早回札幌。"]
       },
       {
         number: "第4天", date: "1月23日", place: "札幌", pace: "轻松到适中", temp: "约 -0.6 C 至 -7 C", snow: "高", image: "dashboard_assets/sapporo-winter.png", map: "output/maps/day4_zh.png",
