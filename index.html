@@ -122,6 +122,10 @@
     .route-line { padding: 14px 15px; background: var(--snow); border-bottom: 1px solid var(--line); }
     .route-line strong { display: block; font-size: 16px; }
     .route-line span { display: block; margin-top: 3px; color: var(--muted); font-size: 14px; }
+    .location-links { display: flex; flex-wrap: wrap; gap: 8px; padding: 12px 15px; border-bottom: 1px solid var(--line); background: #fff; }
+    .map-chip { display: inline-flex; align-items: center; min-height: 35px; padding: 5px 9px; border: 1px solid var(--lake); color: var(--pine); background: #fff; font-size: 14px; font-weight: 750; text-decoration: none; }
+    .map-chip::after { content: "↗"; margin-left: 6px; color: var(--lake); font-size: 15px; }
+    .map-chip:focus-visible, .map-chip:hover { border-color: var(--pine); background: #eef6f4; outline: 2px solid transparent; }
     .agenda { list-style: none; padding: 0; margin: 0; }
     .agenda li { position: relative; padding: 14px 15px 14px 33px; border-bottom: 1px solid var(--line); }
     .agenda li:last-child { border-bottom: 0; }
@@ -172,6 +176,8 @@
     .stay-notes { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line); font-size: 14px; }
     .stay-notes strong { color: var(--ink); }
     .stay a { color: var(--pine); font-weight: 700; text-decoration-thickness: 1px; }
+    .stay-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+    .stay-links p { margin: 0; }
     .booking-list { display: grid; gap: 10px; margin-top: 16px; }
     .booking-row { display: grid; grid-template-columns: 20px 1fr; gap: 11px; align-items: start; padding: 13px 0; border-bottom: 1px solid var(--line); }
     .booking-row:last-child { border-bottom: 0; }
@@ -285,6 +291,16 @@
       <section class="section">
         <h2 class="section-title">✈️ 航班总览</h2>
         <p class="section-copy">所有时间均为当地时间。公开版仅保留航线、航班和时刻；已隐藏旅客姓名、确认号、票号、座位、邮箱和电话。</p>
+        <div class="location-links" aria-label="机场与中转酒店 Google 地图">
+          <a class="map-chip" href="https://www.google.com/maps/search/?api=1&amp;query=San%20Francisco%20International%20Airport" target="_blank" rel="noopener noreferrer">📍 旧金山国际机场 SFO</a>
+          <a class="map-chip" href="https://www.google.com/maps/search/?api=1&amp;query=Tokyo%20Haneda%20Airport" target="_blank" rel="noopener noreferrer">📍 东京羽田机场 HND</a>
+          <a class="map-chip" href="https://www.google.com/maps/search/?api=1&amp;query=New%20Chitose%20Airport" target="_blank" rel="noopener noreferrer">📍 新千岁机场 CTS</a>
+          <a class="map-chip" href="https://www.google.com/maps/search/?api=1&amp;query=Guilin%20Liangjiang%20International%20Airport" target="_blank" rel="noopener noreferrer">📍 桂林两江机场 KWL</a>
+          <a class="map-chip" href="https://www.google.com/maps/search/?api=1&amp;query=Shanghai%20Pudong%20International%20Airport" target="_blank" rel="noopener noreferrer">📍 上海浦东机场 PVG</a>
+          <a class="map-chip" href="https://www.google.com/maps/search/?api=1&amp;query=Holiday%20Inn%20Shanghai%20Pudong%20Airport" target="_blank" rel="noopener noreferrer">📍 上海机场过夜酒店</a>
+          <a class="map-chip" href="https://www.google.com/maps/search/?api=1&amp;query=Los%20Angeles%20International%20Airport" target="_blank" rel="noopener noreferrer">📍 洛杉矶国际机场 LAX</a>
+          <a class="map-chip" href="https://www.google.com/maps/search/?api=1&amp;query=San%20Jose%20Mineta%20International%20Airport" target="_blank" rel="noopener noreferrer">📍 圣何塞国际机场 SJC</a>
+        </div>
 
         <div class="flight-list">
           <article class="flight-card">
@@ -352,8 +368,8 @@
         <h2 class="section-title">🍜 餐厅安排</h2>
         <p class="section-copy">登别 1月24日-26日和洞爷湖 1月26日-27日的酒店晚餐已含，无需额外预订。札幌建议只锁定一顿特别晚餐，其余保持弹性。</p>
         <ul class="detail-list">
-          <li><strong>1月21日，札幌</strong>推荐预订一顿想吃的特别晚餐，例如 Sapporo Beer Garden、Sushizen 或 Suginome。</li>
-          <li><strong>1月22日，小樽</strong>如确定想吃 Otaru Masazushi，可提前订午餐；其他时间以现场为主。</li>
+          <li><strong>1月21日，札幌</strong>推荐预订一顿想吃的特别晚餐，例如 Sapporo Beer Garden、Sushizen 或 Suginome。<div class="location-links"><a class="map-chip" href="https://www.google.com/maps/search/?api=1&amp;query=Sapporo%20Beer%20Garden" target="_blank" rel="noopener noreferrer">📍 Sapporo Beer Garden</a><a class="map-chip" href="https://www.google.com/maps/search/?api=1&amp;query=Sushizen%20Sapporo" target="_blank" rel="noopener noreferrer">📍 Sushizen</a><a class="map-chip" href="https://www.google.com/maps/search/?api=1&amp;query=Suginome%20Sapporo" target="_blank" rel="noopener noreferrer">📍 Suginome</a></div></li>
+          <li><strong>1月22日，小樽</strong>如确定想吃 Otaru Masazushi，可提前订午餐；其他时间以现场为主。<div class="location-links"><a class="map-chip" href="https://www.google.com/maps/search/?api=1&amp;query=Otaru%20Masazushi" target="_blank" rel="noopener noreferrer">📍 Otaru Masazushi</a></div></li>
           <li><strong>1月23日，札幌</strong>保留为天气缓冲日，餐厅订位可以晚一点或选酒店附近。</li>
           <li><strong>1月27日，千岁</strong>简单用餐即可，以酒店、千岁市区或新千岁机场餐饮区为主。</li>
         </ul>
@@ -378,6 +394,7 @@
               </div>
               <a class="shop-link" href="https://www.stellarplace.net/" target="_blank" rel="noopener noreferrer">Stellar Place 官网</a>
               <a class="shop-link" href="https://satudora.jp/shop/sapporosuterapureisu/" target="_blank" rel="noopener noreferrer">Satsudora 店铺信息</a>
+              <a class="shop-link" href="https://www.google.com/maps/search/?api=1&amp;query=Sapporo%20Stellar%20Place" target="_blank" rel="noopener noreferrer">📍 Google 地图</a>
             </div>
           </article>
 
@@ -392,6 +409,7 @@
                 <div><strong>提醒</strong><span>伴手礼尽量在行程前段购买；冷藏或冷冻品留到最后一两天再选。</span></div>
               </div>
               <a class="shop-link" href="https://www.daimaru.co.jp/sapporo/c/" target="_blank" rel="noopener noreferrer">大丸札幌店官网</a>
+              <a class="shop-link" href="https://www.google.com/maps/search/?api=1&amp;query=Daimaru%20Sapporo" target="_blank" rel="noopener noreferrer">📍 Google 地图</a>
             </div>
           </article>
 
@@ -406,6 +424,7 @@
                 <div><strong>冬季优势</strong><span>不用安排成整天行程，天气不好或晚餐前后顺路即可。</span></div>
               </div>
               <a class="shop-link" href="https://cocono-susukino.jp/facility/detail/2" target="_blank" rel="noopener noreferrer">COCONO 营业时间</a>
+              <a class="shop-link" href="https://www.google.com/maps/search/?api=1&amp;query=COCONO%20SUSUKINO" target="_blank" rel="noopener noreferrer">📍 Google 地图</a>
             </div>
           </article>
 
@@ -420,6 +439,8 @@
                 <div><strong>购买策略</strong><span>先列清单再买；药品请确认适用人群与成分，避免只看包装购买。</span></div>
               </div>
               <a class="shop-link" href="https://satudora.jp/shop/?area=%E4%B8%AD%E5%A4%AE%E5%8C%BA" target="_blank" rel="noopener noreferrer">Satsudora 札幌中央区门店</a>
+              <a class="shop-link" href="https://www.google.com/maps/search/?api=1&amp;query=Tanukikoji%20Shopping%20Street" target="_blank" rel="noopener noreferrer">📍 狸小路 Google 地图</a>
+              <a class="shop-link" href="https://www.google.com/maps/search/?api=1&amp;query=moyuk%20SAPPORO" target="_blank" rel="noopener noreferrer">📍 moyuk SAPPORO 地图</a>
             </div>
           </article>
         </div>
@@ -444,6 +465,7 @@
                   <div><strong>适合时段</strong><span>第 1 晚晚到后，或购物、晚餐前后。</span></div>
                 </div>
                 <a class="shop-link" href="https://www.tokyuhotels.co.jp/en/sapporostream/restaurant/splish_cafe/cafe/index.html" target="_blank" rel="noopener noreferrer">Splish 咖啡吧官网</a>
+                <a class="shop-link" href="https://www.google.com/maps/search/?api=1&amp;query=Bar%20and%20Grill%20Splish%20Cafe%20and%20Bar%20Sapporo" target="_blank" rel="noopener noreferrer">📍 Google 地图</a>
               </div>
             </article>
 
@@ -457,6 +479,7 @@
                   <div><strong>提醒</strong><span>各分店营业时间不同，出发当天从官网店铺列表确认最近的一家。</span></div>
                 </div>
                 <a class="shop-link" href="https://miyakoshiya-coffee.co.jp/shopinfo/" target="_blank" rel="noopener noreferrer">宫越屋门店列表</a>
+                <a class="shop-link" href="https://www.google.com/maps/search/?api=1&amp;query=Miyakoshiya%20Coffee%20Sapporo" target="_blank" rel="noopener noreferrer">📍 Google 地图</a>
               </div>
             </article>
 
@@ -470,6 +493,7 @@
                   <div><strong>提醒</strong><span>按地下街当日营业时间安排；热门时段可能需要排队。</span></div>
                 </div>
                 <a class="shop-link" href="https://www.sapporo-chikagai.jp/shop/single/176" target="_blank" rel="noopener noreferrer">KINOTOYA BAKE 店铺信息</a>
+                <a class="shop-link" href="https://www.google.com/maps/search/?api=1&amp;query=KINOTOYA%20BAKE%20Pole%20Town" target="_blank" rel="noopener noreferrer">📍 Google 地图</a>
               </div>
             </article>
           </div>
@@ -487,48 +511,56 @@
       {
         number: "第1天", date: "1月20日", place: "札幌", pace: "轻松", temp: "札幌夜间常低于 0 C", snow: "可能有雪", image: "dashboard_assets/sapporo-winter.png", map: "output/maps/day1_zh.png",
         title: "抵达新千岁，前往札幌", route: "新千岁机场 -> 道庁正門前 -> 酒店", travel: "到札幌市中心约45-50 km；机场巴士约70-90分钟，之后短距离接驳。",
+        places: [{ name: "新千岁机场", query: "New Chitose Airport" }, { name: "道庁正門前", query: "Hokkaido Government Office Main Gate Sapporo" }, { name: "Hyatt Centric Sapporo", query: "Hyatt Centric Sapporo" }],
         agenda: [["抵达与转移", "约 21:30 抵达后，到国际航站楼一侧的巴士区，从 84 号站台搭机场巴士，在道庁正門前（Hokkaido Government）下车，再前往酒店。"], ["入住", "Hyatt Centric Sapporo（札幌中心凯悦尚萃酒店）。入住后以休息为主。"], ["晚间", "不安排餐厅预订；可在机场、便利店或酒店附近简单解决。"]],
         details: ["Hyatt Centric Sapporo（札幌中心凯悦尚萃酒店）：1月20日-24日，已订2间房；每间由1月20日-23日积分房和1月23日-24日免费住宿奖励两笔连续预订组成；入住15:00，退房11:00。", "抵达日不安排重要景点，给航班延误和下雪留余量。", "落地后请再看电子屏和时刻表；夜间班次及雪天运行可能调整。"]
       },
       {
         number: "第2天", date: "1月21日", place: "札幌", pace: "轻松到适中", temp: "约 -0.6 C 至 -7 C", snow: "高", image: "dashboard_assets/sapporo-winter.png", map: "output/maps/day2_zh.png",
         title: "市中心一路逛到薄野", route: "札幌站 -> 红砖厅 -> 大通公园 / 电视塔 -> 狸小路 -> 薄野", travel: "市中心各点约 0.3-1.5 km；雪天可随时改为短程出租车。",
+        places: [{ name: "札幌站", query: "Sapporo Station" }, { name: "红砖厅", query: "Former Hokkaido Government Office Building Sapporo" }, { name: "大通公园", query: "Odori Park Sapporo" }, { name: "札幌电视塔", query: "Sapporo TV Tower" }, { name: "狸小路商店街", query: "Tanukikoji Shopping Street" }, { name: "薄野", query: "Susukino Sapporo" }, { name: "二条市场", query: "Nijo Market Sapporo" }, { name: "札幌场外市场", query: "Sapporo Central Wholesale Market Jogai Market" }, { name: "札幌市钟楼", query: "Sapporo Clock Tower" }, { name: "札幌啤酒博物馆", query: "Sapporo Beer Museum" }],
         agenda: [["上午", "札幌站出发，参观红砖厅（旧北海道厅本厅舍）；再到大通公园看雪景。"], ["下午", "在大通公园看红色电视塔；是否登塔按兴趣决定。中间安排热饮或回酒店短暂休息。"], ["晚上", "先逛有顶棚的狸小路买伴手礼，再往南走到薄野看夜景；晚餐选拉面、成吉思汗烤羊肉或汤咖喱。"]],
         details: ["红砖厅已在2025年7月恢复室内参观；出发前复查开放和入场时间。", "保留推荐：二条市场或场外市场、钟楼、札幌啤酒博物馆、AOAO SAPPORO、百货公司美食楼层和地下街，适合加选或坏天气替代。", "大通公园是开放式公共公园；路滑时缩短步行并多打车。"]
       },
       {
         number: "第3天", date: "1月22日", place: "小樽", pace: "适中", temp: "约 -0.5 C 至 -5.8 C", snow: "很高", image: "dashboard_assets/otaru-canal-winter.png", map: "output/maps/day3_zh.png",
         title: "小樽一日游", route: "札幌 -> 小樽站 / 三角市场 -> 运河 -> 堺町通 -> 札幌", travel: "札幌站至小樽站 JR 约35-50分钟；可用交通卡。小樽站到三角市场步行约1分钟。",
+        places: [{ name: "小樽站", query: "Otaru Station" }, { name: "三角市场", query: "Sankaku Market Otaru" }, { name: "小樽运河", query: "Otaru Canal" }, { name: "浅草桥", query: "Asakusa Bridge Otaru" }, { name: "堺町通", query: "Sakaimachi Street Otaru" }, { name: "北一硝子", query: "Kitaichi Glass Otaru" }, { name: "LeTAO 本店", query: "LeTAO Main Store Otaru" }, { name: "小樽音乐盒堂", query: "Otaru Music Box Museum" }, { name: "天狗山缆车", query: "Tenguyama Ropeway Otaru" }],
         agenda: [["上午", "JR 到小樽后先吃三角市场海鲜早餐或早午餐；单点前问清价格、计价单位和加工费。"], ["上午晚些时候", "到浅草桥附近拍小樽运河和雪中的仓库；风大或下雪时缩短停留。"], ["下午", "堺町通逛北一硝子、LeTAO 和小樽音乐盒堂 / 蒸汽钟；一路进店、咖啡馆取暖。"]],
         details: ["天狗山是天气好的加选项，不是必做。出发前确认缆车运营、能见度、末班缆车和返程交通；想看日落时，要相应缩短市区路线。", "小樽音乐盒堂主馆常见 9:00-18:00；堺町通各店多在 10:00-17:00/18:00。", "雪天版本：三角市场、运河短暂停拍、室内商店、甜品和咖啡；直接跳过天狗山并提早回札幌。"]
       },
       {
         number: "第4天", date: "1月23日", place: "札幌", pace: "轻松到适中", temp: "约 -0.6 C 至 -7 C", snow: "高", image: "dashboard_assets/sapporo-winter.png", map: "output/maps/day4_zh.png",
         title: "圆山、北海道神宫和白色恋人公园", route: "圆山公园 -> 北海道神宫 -> 白色恋人公园", travel: "圆山公园地铁加步行约20-30分钟；神宫到白色恋人公园约25-40分钟；雪天可改出租车。",
+        places: [{ name: "圆山公园", query: "Maruyama Park Sapporo" }, { name: "北海道神宫", query: "Hokkaido Shrine" }, { name: "白色恋人公园", query: "Shiroi Koibito Park" }, { name: "SOUP CURRY KING Gateway", query: "SOUP CURRY KING Gateway Sapporo" }, { name: "北海道开拓之村", query: "Historical Village of Hokkaido" }, { name: "大仓山展望台", query: "Okurayama Ski Jump Stadium" }, { name: "泷野 Snow World", query: "Takino Snow World" }, { name: "AOAO SAPPORO", query: "AOAO SAPPORO" }],
         agenda: [["上午", "地铁到圆山公园站，穿过雪中的圆山公园前往北海道神宫；公园和神宫留1.5-2小时。"], ["下午", "前往白色恋人公园。可逛免费庭院和伴手礼商店；想看制作展示或体验活动则提前预约收费区域。"], ["晚上", "晚餐备选：Google Maps 搜索 SOUP CURRY KING ゲートウェイ店；当天确认营业时间和是否接受预订。早点回酒店整理去温泉的行李。"]],
         details: ["保留推荐：北海道开拓之村、大仓山展望台、泷野 Snow World、AOAO、咖啡馆、百货公司美食楼层和室内购物，都可在天气或体力变化时替换。", "白色恋人公园的开放和收费区最后入场时间需在出发前复查。", "不需要把全部推荐塞进同一天；本日以神宫和白色恋人为主。"]
       },
       {
         number: "第5天", date: "1月24日", place: "白老 / 登别", pace: "适中", temp: "约 -1.2 C 至 -7.3 C", snow: "高", image: "dashboard_assets/noboribetsu-winter.png", map: "output/maps/day5_zh.png",
         title: "札幌 -> Upopoy -> 登别温泉", route: "札幌 -> 白老 Upopoy -> 登别站 -> 登别温泉", travel: "全日约115-125 km；纯移动约2.5-3.5小时，不含参观时间。",
+        places: [{ name: "Upopoy 国立阿伊努民族博物馆及园区", query: "Upopoy National Ainu Museum and Park" }, { name: "白老站", query: "Shiraoi Station" }, { name: "登别站", query: "Noboribetsu Station" }, { name: "第一泷本馆", query: "Noboribetsu Onsen Dai-ichi Takimotokan" }],
         agenda: [["上午", "札幌搭火车前往白老，参观 Upopoy 国立阿伊努民族博物馆及园区。"], ["下午", "继续到登别温泉，入住第一滝本館。"], ["晚上", "泡温泉，享用已含会席晚餐。"]],
         details: ["Upopoy 冬季 9:00-17:00；周一、12月28日-1月4日及特定维修日闭园，须复查。", "白老站到 Upopoy 步行约10-15分钟；带行李可先安排寄存。", "第一滝本馆已订 1月24日-26日，含会席晚餐和日式早餐。"]
       },
       {
         number: "第6天", date: "1月25日", place: "登别温泉", pace: "轻松", temp: "约 -1.2 C 至 -7.3 C", snow: "高", image: "dashboard_assets/noboribetsu-winter.png", map: "output/maps/day6_zh.png",
         title: "登别温泉慢节奏日", route: "第一滝本馆 / 温泉街 -> 地狱谷 -> 温泉旅馆", travel: "地狱谷约0.5-1 km，步行或出租车约5-15分钟；其他山下景点出租车约15-20分钟。",
+        places: [{ name: "登别地狱谷", query: "Noboribetsu Jigokudani Hell Valley" }, { name: "登别伊达时代村", query: "Noboribetsu Date Jidaimura" }, { name: "登别海洋公园尼克斯", query: "Noboribetsu Marine Park Nixe" }],
         agenda: [["上午", "白天短程参观地狱谷，确认步道没有因冰雪关闭。"], ["下午", "回旅馆休息；体力充足时可选伊达时代村或登别海洋公园尼克斯。"], ["晚上", "第二晚温泉，住宿含日式早餐和会席晚餐。"]],
         details: ["地狱谷为户外区域，无固定大门时间；只建议白天短时间前往。", "伊达时代村冬季 9:00-16:00；尼克斯 9:00-17:00，最后入场 16:30。", "风雪天最好的版本是留在温泉旅馆休息。"]
       },
       {
         number: "第7天", date: "1月26日", place: "洞爷湖", pace: "轻松到适中", temp: "约 -1 C 至 -7 C", snow: "中到高", image: "dashboard_assets/toyako-winter.png", map: "output/maps/day7_zh.png",
         title: "登别 -> 洞爷湖温泉", route: "登别温泉 -> 登别站 -> 洞爷站 -> 洞爷湖温泉", travel: "登别站至洞爷站约35-60分钟；洞爷站至酒店约15-25分钟。",
+        places: [{ name: "洞爷站", query: "Toya Station Hokkaido" }, { name: "洞爷湖温泉", query: "Toyako Onsen" }, { name: "昭和新山", query: "Showa Shinzan" }, { name: "有珠山缆车", query: "Usuzan Ropeway" }, { name: "有珠山火山科学馆", query: "Usu Volcano Observatory" }, { name: "The LakeSuite KOnOSUMIKA", query: "The LakeSuite KOnOSUMIKA" }, { name: "The Toya", query: "The Toya LakeSuite KOnOSUMIKA" }],
         agenda: [["上午", "慢慢吃早餐，前往洞爷湖温泉。"], ["下午晴天版", "昭和新山和有珠山缆车；单程车程约20-25分钟。"], ["下午风雪版", "洞爷湖温泉区、游客中心 / 火山科学馆、咖啡馆或回酒店休息。"]],
         details: ["The LakeSuite KOnOSUMIKA 已订 1月26日-27日，1间房 / 3位成人。", "有珠山缆车 2027年1月具体时间待确认；冬季常见约 9:00-16:00 / 16:30，强风或低能见度可暂停。", "酒店含 The Toya 会席风格晚餐和早餐自助餐。"]
       },
       {
         number: "第8天", date: "1月27日", place: "千岁", pace: "轻松", temp: "约 -1.1 C 至 -12.9 C", snow: "中等", image: "dashboard_assets/toyako-winter.png", map: "output/maps/day8_zh.png",
         title: "洞爷湖 -> 千岁机场缓冲夜", route: "洞爷湖温泉 -> 洞爷站 -> 千岁 -> ANA Crowne Plaza Chitose", travel: "洞爷站至千岁 / 机场周边，火车含接驳按1.5-2.5小时规划；酒店距机场约15分钟。",
+        places: [{ name: "ANA 皇冠假日酒店千岁", query: "ANA Crowne Plaza Chitose" }],
         agenda: [["上午", "吃完早餐后慢慢离开洞爷湖。"], ["下午", "15:00 后入住 ANA Crowne Plaza Chitose，休息并整理行李。"], ["晚上", "简单晚餐，睡前请前台确认第二天清晨出租车或接驳。"]],
         details: ["这一晚的目的就是保护第9天早班机，不再安排户外景点或绕路。", "当前追踪：可在 2027年1月26日 18:00 前免费取消，以酒店当地时间为准。", "雪天抵达机场要留更多时间。"]
       },
@@ -541,20 +573,20 @@
     ];
 
     const stays = [
-      { area: "札幌 · 4晚", hotel: "Hyatt Centric Sapporo", chineseName: "札幌中心凯悦尚萃酒店", fallback: "dashboard_assets/sapporo-winter.png", dates: "2027年1月20日-24日", body: "札幌市中心基地；已订2间房。每间房分为1月20日-23日积分房和1月23日-24日免费住宿奖励两笔连续预订；入住15:00，退房11:00。", notes: "1月20日入住的两间房：每间50,000 World of Hyatt积分（15,000 + 15,000 + 20,000）。1月23日入住的两间房：各使用一晚免费住宿奖励。每笔预订须在入住前3天23:59（酒店当地时间）前取消，否则收取一晚费用。", url: "https://www.hyatt.com/hyatt-centric/en-US/ctsct-hyatt-centric-sapporo", photos: [
+      { area: "札幌 · 4晚", hotel: "Hyatt Centric Sapporo", chineseName: "札幌中心凯悦尚萃酒店", fallback: "dashboard_assets/sapporo-winter.png", dates: "2027年1月20日-24日", body: "札幌市中心基地；已订2间房。每间房分为1月20日-23日积分房和1月23日-24日免费住宿奖励两笔连续预订；入住15:00，退房11:00。", notes: "1月20日入住的两间房：每间50,000 World of Hyatt积分（15,000 + 15,000 + 20,000）。1月23日入住的两间房：各使用一晚免费住宿奖励。每笔预订须在入住前3天23:59（酒店当地时间）前取消，否则收取一晚费用。", url: "https://www.hyatt.com/hyatt-centric/en-US/ctsct-hyatt-centric-sapporo", mapQuery: "Hyatt Centric Sapporo", photos: [
         { src: "dashboard_assets/sapporo-winter.png", alt: "札幌中心凯悦尚萃酒店附近的札幌冬景", label: "札幌冬季示意图" }
       ] },
-      { area: "登别温泉 · 2晚", hotel: "Noboribetsu Onsen Dai-ichi Takimotokan", chineseName: "登别温泉第一泷本馆", fallback: "dashboard_assets/noboribetsu-winter.png", dates: "2027年1月24日-26日", body: "Deluxe Japanese-Style Room，3位成人。已含会席晚餐与日式早餐。", notes: "总价 USD 981.08；1月16日 23:59 前可无风险取消。", url: "https://takimotokan.co.jp/en/", photos: [
+      { area: "登别温泉 · 2晚", hotel: "Noboribetsu Onsen Dai-ichi Takimotokan", chineseName: "登别温泉第一泷本馆", fallback: "dashboard_assets/noboribetsu-winter.png", dates: "2027年1月24日-26日", body: "Deluxe Japanese-Style Room，3位成人。已含会席晚餐与日式早餐。", notes: "总价 USD 981.08；1月16日 23:59 前可无风险取消。", url: "https://takimotokan.co.jp/en/", mapQuery: "Noboribetsu Onsen Dai-ichi Takimotokan", photos: [
         { src: "https://takimotokan.co.jp/wp-content/uploads/2024/06/room-slider-1.webp", alt: "第一滝本馆客房", label: "酒店官网公开客房图" },
         { src: "https://takimotokan.co.jp/wp-content/uploads/2024/06/taki-bath.webp", alt: "第一滝本馆温泉", label: "酒店官网公开温泉图" },
         { src: "https://takimotokan.co.jp/wp-content/uploads/2024/06/cuisine-photo-1.webp", alt: "第一滝本馆料理", label: "酒店官网公开餐食图" }
       ] },
-      { area: "洞爷湖温泉 · 1晚", hotel: "The LakeSuite KOnOSUMIKA", chineseName: "洞爷湖湖之栖酒店", fallback: "dashboard_assets/toyako-winter.png", dates: "2027年1月26日-27日", body: "露天温泉角落露台房，3位成人。含 The Toya 晚餐和早餐自助餐。", notes: "总支付 ¥120,555，已预付；1月11日 23:59 前免费取消。", url: "https://www.konosumika.com/en/", photos: [
+      { area: "洞爷湖温泉 · 1晚", hotel: "The LakeSuite KOnOSUMIKA", chineseName: "洞爷湖湖之栖酒店", fallback: "dashboard_assets/toyako-winter.png", dates: "2027年1月26日-27日", body: "露天温泉角落露台房，3位成人。含 The Toya 晚餐和早餐自助餐。", notes: "总支付 ¥120,555，已预付；1月11日 23:59 前免费取消。", url: "https://www.konosumika.com/en/", mapQuery: "The LakeSuite KOnOSUMIKA", photos: [
         { src: "https://www.konosumika.com/wp-content/uploads/2019/08/コーナーテラス【4名定員】_4.jpg", alt: "湖之栖角落露台房", label: "酒店官网公开客房图" },
         { src: "https://www.konosumika.com/wp-content/uploads/2019/10/7F_701_2491.jpg", alt: "湖之栖露台与洞爷湖景观", label: "酒店官网公开露台图" },
         { src: "https://www.konosumika.com/wp-content/uploads/2019/10/7F_701_2501.jpg", alt: "湖之栖私人露天温泉", label: "酒店官网公开温泉图" }
       ] },
-      { area: "千岁 · 1晚", hotel: "ANA Crowne Plaza Chitose", chineseName: "ANA皇冠假日酒店千岁", fallback: "dashboard_assets/sapporo-winter.png", dates: "2027年1月27日-28日", body: "早班机缓冲夜；酒店离新千岁机场约15分钟。", notes: "当前追踪：1月26日 18:00 前可免费取消。", url: "https://www.ihg.com/crowneplaza/hotels/us/en/hokkaido/ctsja/hoteldetail", photos: [
+      { area: "千岁 · 1晚", hotel: "ANA Crowne Plaza Chitose", chineseName: "ANA皇冠假日酒店千岁", fallback: "dashboard_assets/sapporo-winter.png", dates: "2027年1月27日-28日", body: "早班机缓冲夜；酒店离新千岁机场约15分钟。", notes: "当前追踪：1月26日 18:00 前可免费取消。", url: "https://www.ihg.com/crowneplaza/hotels/us/en/hokkaido/ctsja/hoteldetail", mapQuery: "ANA Crowne Plaza Chitose", photos: [
         { src: "dashboard_assets/sapporo-winter.png", alt: "千岁冬季景观", label: "" }
       ] }
     ];
@@ -573,6 +605,8 @@
 
     let activeDay = 0;
     const escapeHtml = (text) => String(text).replace(/[&<>'"]/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[char]));
+    const googleMapsUrl = (query) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+    const mapChips = (places) => places?.length ? `<div class="location-links" aria-label="当天地点 Google 地图">${places.map((place) => `<a class="map-chip" href="${googleMapsUrl(place.query)}" target="_blank" rel="noopener noreferrer">📍 ${escapeHtml(place.name)}</a>`).join("")}</div>` : "";
 
     function renderDayStrip() {
       const holder = document.getElementById("day-strip");
@@ -598,6 +632,7 @@
           </div>
           <div class="day-content">
             <div class="route-line"><strong>${day.route}</strong><span>${day.travel}</span></div>
+            ${mapChips(day.places)}
             <ol class="agenda">${day.agenda.map(([title, text]) => `<li><strong>${title}</strong><span>${text}</span></li>`).join("")}</ol>
             <div class="day-tools">
               <button class="tool-button" type="button" data-toggle="details">查看当天提醒</button>
@@ -623,7 +658,7 @@
         return `
           <article class="stay">
             <div class="stay-photo" aria-label="${stay.hotel}主图">${hotelPhotoMarkup(primaryPhoto, stay)}</div>
-            <div class="stay-body"><p class="stay-kicker">${stay.area} · ${stay.dates}</p><h3>${stay.hotel} <span class="stay-chinese">（${stay.chineseName}）</span></h3><p>${stay.body}</p><div class="stay-notes"><strong>价格与取消：</strong>${stay.notes}</div><p><a href="${stay.url}" target="_blank" rel="noopener">酒店官网</a></p></div>
+            <div class="stay-body"><p class="stay-kicker">${stay.area} · ${stay.dates}</p><h3>${stay.hotel} <span class="stay-chinese">（${stay.chineseName}）</span></h3><p>${stay.body}</p><div class="stay-notes"><strong>价格与取消：</strong>${stay.notes}</div><div class="stay-links"><p><a href="${stay.url}" target="_blank" rel="noopener noreferrer">酒店官网</a></p><p><a href="${googleMapsUrl(stay.mapQuery)}" target="_blank" rel="noopener noreferrer">📍 Google 地图</a></p></div></div>
             ${extraPhotos.length ? `<details class="stay-photos"><summary>照片（${extraPhotos.length}张）</summary><div class="photo-stack" aria-label="${stay.hotel}更多照片">${extraPhotos.map((photo) => hotelPhotoMarkup(photo, stay)).join("")}</div></details>` : ""}
           </article>`;
       }).join("");
